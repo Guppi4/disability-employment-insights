@@ -351,6 +351,12 @@ body{line-height:1.6}
 .ins .clab{font-size:var(--fs-0);line-height:1.3;color:var(--ink2)}
 .ins .col.hl .cval,.ins .col.hl .clab{font-weight:700;color:var(--ink)}
 
+/* a visible three-step "how we checked" */
+.ins ol.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:1.25rem 2rem;counter-reset:st}
+.ins ol.steps li{counter-increment:st;display:flex;flex-direction:column;gap:.35rem;border-top:3px solid var(--ink);padding-top:.7rem;line-height:1.5}
+.ins ol.steps li::before{content:counter(st);font-family:var(--display);font-weight:700;font-size:2.4rem;line-height:.85;color:var(--s2)}
+.ins .bars.pairs .psub{font-weight:700;color:var(--ink);font-size:var(--fs-0)}
+
 </style>
 <div class="page"><div class="ins" dir="rtl" lang="he">
 
@@ -407,21 +413,34 @@ body{line-height:1.6}
 <section id="profile">
   <div class="kicker"><span>ממצא</span><b>3</b></div>
   <div class="fbody">
-  <h2>גם בין אנשים דומים חסרים בעיר כ-1,400 מקבלי שכר</h2>
-  <p class="say">בירושלים יש יותר ערבים ויותר אנשים עם נכות קשה, וזה מסביר חלק מהפער. אבל גם כשמשווים אנשים מאותה קבוצה, מאותו מין וגיל ועם אותה חומרת נכות, ירושלים נשארת מאחור.</p>
+  <h2>אילו עבדו כמו אנשים דומים להם בארץ, עוד כ-1,400 ירושלמים היו מקבלים שכר</h2>
+  <p class="say">אפשר לחשוב שהפער קיים רק כי בירושלים יש יותר ערבים ויותר אנשים עם נכות קשה. בדקנו את זה: השווינו כל קבוצה בעיר לאותה קבוצה בדיוק בכל הארץ.</p>
+  <ol class="steps">
+    <li>חילקנו את הרשומים בעיר ל-72 קבוצות של אנשים דומים: אותה קבוצת אוכלוסייה, אותו מין, אותו גיל ואותה חומרת נכות.</li>
+    <li>לכל קבוצה בדקנו איזה חלק ממנה מקבל שכר בכל הארץ, וחישבנו כמה היו מקבלים שכר בירושלים באותו שיעור.</li>
+    <li>חיברנו את כל הקבוצות והשווינו למספר מקבלי השכר בעיר בפועל.</li>
+  </ol>
   <div class="stats">
-    <div class="stat soft"><b>36.0%</b><span>מהרשומים בירושלים הם ערבים</span><small>ישראל: 23.6%</small></div>
-    <div class="stat soft"><b>78.0%</b><span>מהרשומים בירושלים הם עם 60% נכות ומעלה</span><small>ישראל: 72.8%</small></div>
+    <div class="stat"><b>19,984</b><span>מקבלים שכר בירושלים בפועל</span></div>
+    <div class="stat ref"><b><small>כ-</small>21,400</b><span>היו מקבלים שכר, אילו כל קבוצה קיבלה שכר כמו בארץ</span></div>
   </div>
-  <div class="card">
-    <h3>מי שגר בעיר מסביר פחות מחצי מהפער</h3>
-    <p class="note">הפער בשיעור מקבלי השכר בין ישראל לירושלים, 2024, בנקודות אחוז. החלק האפור היה נעלם אילו כל קבוצה בעיר קיבלה שכר כמו אותה קבוצה בכל הארץ.</p>
-    <div class="chart" data-draw="c_profile"></div>
+  <div class="grid2">
+    <div class="card">
+      <h3>דוגמה: שלוש קבוצות עם 80% נכות ומעלה</h3>
+      <p class="note">מספר מקבלי השכר בירושלים, 2024: בפועל, ומה שהיה מתקבל לפי השיעור של אותה קבוצה בכל הארץ.</p>
+      <div class="legend"><span class="c1"><i class="sw sq2"></i>בפועל</span><span class="cm"><i class="sw sq2"></i>לפי השיעור בארץ</span></div>
+      <div class="chart" data-draw="c_example"></div>
+    </div>
+    <div class="card">
+      <h3>כשמחברים את כל הקבוצות: רוב הפער אצל גברים יהודים</h3>
+      <p class="note">כמה עוד אנשים היו מקבלים שכר בירושלים, אילו כל קבוצה קיבלה שכר כמו אותה קבוצה בארץ. נתוני 2024.</p>
+      <div class="chart" data-draw="c_missing"></div>
+    </div>
   </div>
   <div class="ask"><small>שאלה פתוחה</small><b>אם זה לא רק מי שגר בעיר, מה מסביר את הפער שנשאר?</b><span>נדרש: נתונים על שכונה, השכלה ותוכניות תעסוקה.</span></div>
-  <details class="check"><summary>איך זה חושב</summary>
-    <p>הרשומים בירושלים חולקו ל-72 תאים לפי קבוצת אוכלוסייה, מין, קבוצת גיל ואחוז נכות. בכל תא הוכפל מספר הרשומים בעיר בשיעור מקבלי השכר של אותו תא בכל הארץ, והתוצאות סוכמו. תא אחד קטן שהלמ"ס לא מפרסמת נשאר מחוץ לחישוב.</p>
-    <p>ההפרש בין השיעור הזה לשיעור בפועל הוא 3.2 נקודות אחוז, כלומר כ-1,400 אנשים. זה אומדן תיאורי: הוא אומר כמה מהפער נשאר אחרי שמשווים אנשים עם אותו פרופיל, ולא מדוע הוא קיים.</p>
+  <details class="check"><summary>הערות לחישוב</summary>
+    <p>תא אחד קטן שהלמ"ס לא מפרסמת נשאר מחוץ לחישוב. המספרים מעוגלים. זה אומדן תיאורי: הוא אומר כמה מהפער נשאר אחרי שמשווים אנשים עם אותו פרופיל, ולא מדוע הוא קיים.</p>
+    <p>לשם השוואה: ערבים הם 36.0% מהרשומים בירושלים ו-23.6% בישראל, ו-78.0% מהרשומים בעיר הם עם 60% נכות ומעלה, מול 72.8% בישראל.</p>
   </details>
   </div>
 </section>
@@ -444,7 +463,7 @@ body{line-height:1.6}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script>
 /* Charts for the Jerusalem 2024 page. All series are precomputed in build_page.py. */
-const DATA = {"mental":[{"label":"גברים","jlm":38.7,"il":44.7,"n":8374,"e":3238,"iln":116887,"ile":52280},{"label":"נשים","jlm":53.7,"il":53.0,"n":5729,"e":3077,"iln":89300,"ile":47302}],"idshare":[{"label":"מכל 100 אנשים עם מוגבלות בישראל","v":7.5,"cls":"cm"},{"label":"מכל 100 אנשים עם מוגבלות שכלית התפתחותית","v":13.6,"cls":"cm"},{"label":"מכל 100 מהם שמקבלים שכר","v":20.9,"cls":"c1"}],"profile":[{"label":"ישראל","v":51.6,"cls":"ck"},{"label":"ירושלים, אילו כל קבוצה קיבלה שכר כמו בארץ","v":49.2,"cls":"cm"},{"label":"ירושלים בפועל","v":46.0,"cls":"c1"}]};
+const DATA = {"mental":[{"label":"גברים","jlm":38.7,"il":44.7,"n":8374,"e":3238,"iln":116887,"ile":52280},{"label":"נשים","jlm":53.7,"il":53.0,"n":5729,"e":3077,"iln":89300,"ile":47302}],"idshare":[{"label":"מכל 100 אנשים עם מוגבלות בישראל","v":7.5,"cls":"cm"},{"label":"מכל 100 אנשים עם מוגבלות שכלית התפתחותית","v":13.6,"cls":"cm"},{"label":"מכל 100 מהם שמקבלים שכר","v":20.9,"cls":"c1"}],"example":[{"label":"גברים יהודים, בני 18–34","actual":1582,"exp":1806,"n":3994,"sub":"עוד 224 היו מקבלים שכר"},{"label":"נשים ערביות, בנות 35–54","actual":155,"exp":280,"n":1126,"sub":"עוד 125 היו מקבלים שכר"},{"label":"נשים יהודיות, בנות 35–54","actual":1170,"exp":1169,"n":2497,"sub":"אין פער"}],"missing":[{"label":"גברים יהודים","v":790,"cls":"c1","text":"עוד כ-790"},{"label":"נשים ערביות","v":490,"cls":"cm","text":"עוד כ-490"},{"label":"גברים ערבים","v":170,"cls":"cm","text":"עוד כ-170"},{"label":"נשים יהודיות","v":0,"cls":"cm","text":"אין פער"}]};
 const f1 = d3.format('.1f');
 const fint = d3.format(',');
 const pct = (v) => f1(v) + '%';
@@ -543,7 +562,7 @@ const versus = (rows) => rows.map((r) => ({
 const HEADS = ['ירושלים', 'ישראל'];
 
 /* Plain horizontal bars from zero: one bar per row, the point in the accent colour. */
-function simpleBars(el, rows, max, labelWidth) {
+function simpleBars(el, rows, max, labelWidth, fmt) {
   const wrap = h('div', 'bars roomy');
   if (labelWidth) wrap.style.setProperty('--blab', labelWidth);
   for (const d of rows) {
@@ -553,7 +572,7 @@ function simpleBars(el, rows, max, labelWidth) {
     const s = h('span', 'seg ' + d.cls);
     s.style.width = (d.v / max * 78) + '%';
     if (d.tip) s.setAttribute('data-tip', d.tip);
-    t.append(s, h('span', 'bval', pct(d.v)));
+    t.append(s, h('span', 'bval', d.text || (fmt || pct)(d.v)));
     row.append(t);
     wrap.append(row);
   }
@@ -562,19 +581,21 @@ function simpleBars(el, rows, max, labelWidth) {
 }
 
 /* Two bars per group, for "this vs that" inside the same group. */
-function pairBars(el, groups, max, labelWidth) {
+function pairBars(el, groups, max, labelWidth, fmt) {
   const wrap = h('div', 'bars pairs');
   if (labelWidth) wrap.style.setProperty('--blab', labelWidth);
   for (const g of groups) {
     const row = h('div', 'wgroup');
-    row.append(h('div', 'plab', g.label));
+    const lab = h('div', 'plab', g.label);
+    if (g.sub) lab.append(h('span', 'psub', g.sub));
+    row.append(lab);
     const bars = h('div', 'wbars');
     g.bars.forEach((b, k) => {
       const t = h('div', 'btrack');
       const s = h('span', 'seg ' + b.cls);
       s.style.width = (b.v / max * 78) + '%';
       if (b.tip) s.setAttribute('data-tip', b.tip);
-      const val = h('span', 'bval', pct(b.v));
+      const val = h('span', 'bval', (fmt || pct)(b.v));
       if (k === 0) val.classList.add('strongval');
       t.append(s, val);
       bars.append(t);
@@ -652,12 +673,17 @@ const draws = {
       ],
     })), 65, '4rem');
   },
-  c_profile(el) {
-    const [il, exp, jlm] = DATA.profile.map((d) => d.v);
-    splitBar(el, 'ישראל ' + pct(il), 'ירושלים ' + pct(jlm), [
-      {v: il - exp, cls: 'cm', label: 'מוסבר במי שגר בעיר'},
-      {v: exp - jlm, cls: 'c1', label: 'נשאר גם בין אנשים דומים'},
-    ]);
+  c_example(el) {
+    pairBars(el, DATA.example.map((g) => ({
+      label: g.label, sub: g.sub,
+      bars: [
+        {v: g.actual, cls: 'c1', tip: g.label + '\nמקבלים שכר בפועל: ' + fint(g.actual) + ' מתוך ' + fint(g.n)},
+        {v: g.exp, cls: 'cm', tip: g.label + '\nהיו מקבלים לפי השיעור בארץ: ' + fint(g.exp)},
+      ],
+    })), 2000, '10.5rem', fint);
+  },
+  c_missing(el) {
+    simpleBars(el, DATA.missing, 900, '7rem', fint);
   },
 };
 document.querySelectorAll('[data-draw]').forEach((el) => { el.replaceChildren(); draws[el.dataset.draw](el); });
