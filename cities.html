@@ -315,6 +315,17 @@ body{line-height:1.6}
 .ins .prow.strong .plab{font-weight:700}
 .ins h1{max-width:18ch;font-size:clamp(3.6rem,9.5cqi,8.5rem)}
 
+/* plain bars everywhere */
+.ins .sw.sq2{border-radius:0;width:.85rem;height:.85rem}
+.ins .bars.pairs{gap:.35rem}
+.ins .bars.pairs .wgroup{padding-block:.55rem;border-top:1px solid var(--grid)}
+.ins .bars.pairs .wgroup:first-child{border-top:0}
+.ins .bars.pairs .seg{height:1.25rem}
+.ins .bars.pairs .plab{font-weight:600}
+.ins .bval.strongval{font-weight:700}
+.ins .bars.roomy .seg{height:1.7rem}
+@container (max-width:40rem){.ins .bars .brow,.ins .bars .wgroup{grid-template-columns:minmax(0,1fr);gap:.25rem}.ins .bars.roomy{gap:.9rem}}
+
 </style>
 <div class="page"><div class="ins" dir="rtl" lang="he">
 
@@ -338,7 +349,7 @@ body{line-height:1.6}
   <div class="card">
     <h3>בכל גיל ומין, עם פגיעת ראש מקבלים שכר הרבה פחות</h3>
     <p class="note">שיעור מקבלי השכר, ישראל 2022.</p>
-    <div class="legend"><span class="c1"><i class="sw"></i>פגיעת ראש</span><span class="ck"><i class="sw bar"></i>מוגבלות פיזית אחרת</span></div>
+    <div class="legend"><span class="c1"><i class="sw sq2"></i>פגיעת ראש</span><span class="cm"><i class="sw sq2"></i>מוגבלות פיזית אחרת</span></div>
     <div class="chart" data-draw="c_head"></div>
   </div>
   <div class="ask"><small>שאלה פתוחה</small><b>מה מקשה על עבודה עם פגיעת ראש יותר מאשר עם מוגבלות פיזית אחרת?</b><span>נדרש: אחוזי נכות ומסגרות שיקום לפי סוג הפגיעה.</span></div>
@@ -358,15 +369,14 @@ body{line-height:1.6}
     <div class="stat ref"><b>63.5%</b><span>מהגברים בני 35-54</span></div>
   </div>
   <div class="card">
-    <h3>עם אותו תמהיל נכות, הנשים עוקפות את הגברים</h3>
+    <h3>עם אותה חומרת נכות, הנשים עוקפות את הגברים</h3>
     <p class="note">שיעור מקבלי השכר בגיל 35-54, ישראל 2022.</p>
-    <div class="legend"><span class="c1"><i class="sw"></i>נשים</span><span class="ck"><i class="sw bar"></i>גברים</span></div>
     <div class="chart" data-draw="c_women"></div>
   </div>
   <div class="ask"><small>שאלה פתוחה</small><b>למה בקבוצות הנכות הקלה יש במרשם כמעט רק גברים?</b><span>86.9% מהרשומים עם עד 19% נכות הם גברים. נדרש: מקור ההכרה (ביטוח לאומי, רווחה, משרד הביטחון) לפי מין ואחוז נכות.</span></div>
   <details class="check"><summary>איך לקרוא את זה</summary>
     <p>בגילאי 18-34 ו-35-54, בכל ארבע קבוצות אחוזי הנכות הידועות, שיעור הנשים שווה לזה של הגברים או גבוה ממנו (8 מתוך 8 השוואות). כך גם בגיל 55 ומעלה, אבל שם טווחי הגיל שונים: נשים עד 62 וגברים עד 67. בקבוצת "אחוז לא ידוע" גברים מקדימים.</p>
-    <p>השיעור "עם תמהיל הנכות של הגברים" הוא שיעור הנשים בכל קבוצת נכות, משוקלל לפי חלקה של הקבוצה בקרב הגברים.</p>
+    <p>השורה השלישית בגרף היא שיעור הנשים בכל קבוצת נכות, משוקלל לפי חלקה של אותה קבוצה בקרב הגברים.</p>
   </details>
   </div>
 </section>
@@ -411,7 +421,7 @@ body{line-height:1.6}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script>
 /* Charts for the Jerusalem 2024 page. All series are precomputed in build_page.py. */
-const DATA = {"head":[{"label":"גברים 18-34","hi":41.1,"oth":59.0,"n":12408,"e":5102,"on":13353,"oe":7882},{"label":"גברים 35-54","hi":40.2,"oth":57.0,"n":17991,"e":7224,"on":30096,"oe":17167},{"label":"נשים 18-34","hi":42.9,"oth":53.9,"n":9310,"e":3994,"on":8731,"oe":4703},{"label":"נשים 35-54","hi":38.8,"oth":46.8,"n":17584,"e":6826,"on":22608,"oe":10589}],"women":[{"label":"בפועל","w":50.2,"m":56.7,"hl":false},{"label":"עם תמהיל הנכות של הגברים","w":59.4,"m":56.7,"hl":true}],"registry":[{"label":"שש הערים המבוססות פחות","v":4.2,"n0":3451,"n":82571},{"label":"שש הערים שבאמצע","v":5.1,"n0":3921,"n":76264},{"label":"שש הערים המבוססות ביותר","v":7.2,"n0":4232,"n":59000}],"light_il":6.0};
+const DATA = {"head":[{"label":"גברים 18-34","hi":41.1,"oth":59.0,"n":12408,"e":5102,"on":13353,"oe":7882},{"label":"גברים 35-54","hi":40.2,"oth":57.0,"n":17991,"e":7224,"on":30096,"oe":17167},{"label":"נשים 18-34","hi":42.9,"oth":53.9,"n":9310,"e":3994,"on":8731,"oe":4703},{"label":"נשים 35-54","hi":38.8,"oth":46.8,"n":17584,"e":6826,"on":22608,"oe":10589}],"women":[{"label":"גברים","v":56.7,"cls":"ck"},{"label":"נשים","v":50.2,"cls":"cm"},{"label":"נשים, אילו חומרת הנכות שלהן הייתה כמו של הגברים","v":59.4,"cls":"c1"}],"registry":[{"label":"שש הערים המבוססות פחות","v":4.2,"n0":3451,"n":82571},{"label":"שש הערים שבאמצע","v":5.1,"n0":3921,"n":76264},{"label":"שש הערים המבוססות ביותר","v":7.2,"n0":4232,"n":59000}],"light_il":6.0};
 const f1 = d3.format('.1f');
 const fint = d3.format(',');
 const pct = (v) => f1(v) + '%';
@@ -509,52 +519,67 @@ const versus = (rows) => rows.map((r) => ({
 }));
 const HEADS = ['ירושלים', 'ישראל'];
 
+/* Plain horizontal bars from zero: one bar per row, the point in the accent colour. */
+function simpleBars(el, rows, max, labelWidth) {
+  const wrap = h('div', 'bars roomy');
+  if (labelWidth) wrap.style.setProperty('--blab', labelWidth);
+  for (const d of rows) {
+    const row = h('div', 'brow' + (d.cls === 'cm' ? '' : ' strong'));
+    row.append(h('div', 'plab', d.label));
+    const t = h('div', 'btrack');
+    const s = h('span', 'seg ' + d.cls);
+    s.style.width = (d.v / max * 78) + '%';
+    if (d.tip) s.setAttribute('data-tip', d.tip);
+    t.append(s, h('span', 'bval', pct(d.v)));
+    row.append(t);
+    wrap.append(row);
+  }
+  el.append(wrap);
+  withTip(el);
+}
+
+/* Two bars per group, for "this vs that" inside the same group. */
+function pairBars(el, groups, max, labelWidth) {
+  const wrap = h('div', 'bars pairs');
+  if (labelWidth) wrap.style.setProperty('--blab', labelWidth);
+  for (const g of groups) {
+    const row = h('div', 'wgroup');
+    row.append(h('div', 'plab', g.label));
+    const bars = h('div', 'wbars');
+    g.bars.forEach((b, k) => {
+      const t = h('div', 'btrack');
+      const s = h('span', 'seg ' + b.cls);
+      s.style.width = (b.v / max * 78) + '%';
+      if (b.tip) s.setAttribute('data-tip', b.tip);
+      const val = h('span', 'bval', pct(b.v));
+      if (k === 0) val.classList.add('strongval');
+      t.append(s, val);
+      bars.append(t);
+    });
+    row.append(bars);
+    wrap.append(row);
+  }
+  el.append(wrap);
+  withTip(el);
+}
+
 const draws = {
   c_head(el) {
-    rowsPlot(el, {domain: [0, 80], ticks: [0, 20, 40, 60, 80], tickFmt: pct0, heads: ['פגיעת ראש', 'פיזית אחרת'], valWidth: '5rem', labelWidth: '6.2rem',
-      rows: DATA.head.map((r) => ({
-        label: r.label,
-        links: [[r.hi, r.oth]],
-        marks: [
-          {v: r.oth, cls: 'il', tip: r.label + '\nמוגבלות פיזית אחרת: ' + pct(r.oth) + ' (' + fint(r.oe) + ' מתוך ' + fint(r.on) + ')'},
-          {v: r.hi, cls: 'c1', tip: r.label + '\nפגיעת ראש: ' + pct(r.hi) + ' (' + fint(r.e) + ' מתוך ' + fint(r.n) + ')'},
-        ],
-        vals: [pct(r.hi), pct(r.oth)],
-      }))});
-    withTip(el);
+    pairBars(el, DATA.head.map((r) => ({
+      label: r.label,
+      bars: [
+        {v: r.hi, cls: 'c1', tip: r.label + '\nפגיעת ראש: ' + pct(r.hi) + ' (' + fint(r.e) + ' מתוך ' + fint(r.n) + ')'},
+        {v: r.oth, cls: 'cm', tip: r.label + '\nמוגבלות פיזית אחרת: ' + pct(r.oth) + ' (' + fint(r.oe) + ' מתוך ' + fint(r.on) + ')'},
+      ],
+    })), 70, '6.4rem');
   },
   c_women(el) {
-    rowsPlot(el, {domain: [40, 70], ticks: [40, 50, 60, 70], tickFmt: pct0, heads: ['נשים', 'גברים'], labelWidth: '8.5rem', cls: 'roomy',
-      rows: DATA.women.map((r) => ({
-        label: r.label, cls: r.hl ? 'strong' : '',
-        links: [[r.w, r.m]],
-        marks: [
-          {v: r.m, cls: 'il', tip: 'גברים בני 35-54: ' + pct(r.m)},
-          {v: r.w, cls: r.hl ? 'c1' : 'c1 hollow', tip: 'נשים בנות 35-54, ' + r.label + ': ' + pct(r.w)},
-        ],
-        vals: [pct(r.w), pct(r.m)],
-      }))});
-    withTip(el);
+    simpleBars(el, DATA.women, 70, '10.5rem');
   },
   c_registry(el) {
-    const wrap = h('div', 'bars roomy');
-    wrap.style.setProperty('--blab', '10.5rem');
-    const max = 8;
-    const rows = DATA.registry.map((d, i) => ({...d, cls: i === 0 ? 'c1' : 'cm'}));
+    const rows = DATA.registry.map((d, i) => ({label: d.label, v: d.v, cls: i === 0 ? 'c1' : 'cm', tip: d.label + '\n' + fint(d.n0) + ' מתוך ' + fint(d.n) + ' רשומים'}));
     rows.push({label: 'ישראל', v: DATA.light_il, cls: 'ck'});
-    rows.forEach((d) => {
-      const row = h('div', 'brow' + (d.cls === 'cm' ? '' : ' strong'));
-      row.append(h('div', 'plab', d.label));
-      const t = h('div', 'btrack');
-      const s = h('span', 'seg ' + d.cls);
-      s.style.width = (d.v / max * 78) + '%';
-      if (d.n) s.setAttribute('data-tip', d.label + '\n' + fint(d.n0) + ' מתוך ' + fint(d.n) + ' רשומים');
-      t.append(s, h('span', 'bval', pct(d.v)));
-      row.append(t);
-      wrap.append(row);
-    });
-    el.append(wrap);
-    withTip(el);
+    simpleBars(el, rows, 8, '10.5rem');
   },
 };
 document.querySelectorAll('[data-draw]').forEach((el) => { el.replaceChildren(); draws[el.dataset.draw](el); });

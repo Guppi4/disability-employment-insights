@@ -315,6 +315,17 @@ body{line-height:1.6}
 .ins .prow.strong .plab{font-weight:700}
 .ins h1{max-width:18ch;font-size:clamp(3.6rem,9.5cqi,8.5rem)}
 
+/* plain bars everywhere */
+.ins .sw.sq2{border-radius:0;width:.85rem;height:.85rem}
+.ins .bars.pairs{gap:.35rem}
+.ins .bars.pairs .wgroup{padding-block:.55rem;border-top:1px solid var(--grid)}
+.ins .bars.pairs .wgroup:first-child{border-top:0}
+.ins .bars.pairs .seg{height:1.25rem}
+.ins .bars.pairs .plab{font-weight:600}
+.ins .bval.strongval{font-weight:700}
+.ins .bars.roomy .seg{height:1.7rem}
+@container (max-width:40rem){.ins .bars .brow,.ins .bars .wgroup{grid-template-columns:minmax(0,1fr);gap:.25rem}.ins .bars.roomy{gap:.9rem}}
+
 </style>
 <div class="page"><div class="ins" dir="rtl" lang="he">
 
@@ -325,26 +336,23 @@ body{line-height:1.6}
   <p class="known"><b>כבר ידוע:</b> 46.0% מהרשומים בירושלים קיבלו שכר ב-2024, מול 51.6% בישראל. מבין 18 הערים הגדולות, רק בבני ברק השיעור נמוך יותר. הפער נמצא בעיקר אצל גברים יהודים ונשים ערביות, וכמעט כולו מעל 60% נכות.</p>
 </header>
 
-<section id="rank">
+<section id="id">
   <div class="kicker"><span>ממצא</span><b>1</b></div>
   <div class="fbody">
-  <h2>הפער גדול ממה שהדירוג מראה</h2>
-  <p class="say">בני ברק אחרונה בדירוג בעיקר כי כמעט כל הרשומים בה הם עם נכות קשה. כשמשווים ערים עם אותו תמהיל של אחוזי נכות, ירושלים היא שבתחתית.</p>
+  <h2>אחד מכל חמישה ישראלים עם מוגבלות שכלית התפתחותית שמקבלים שכר גר בירושלים</h2>
+  <p class="say">זו נקודת החוזק של העיר. במוגבלות שכלית התפתחותית ירושלים הרבה מעל הארץ, גם אצל יהודים וגם אצל ערבים.</p>
   <div class="stats">
-    <div class="stat soft"><b>91.4%</b><span>מהרשומים בבני ברק הם עם 60% נכות ומעלה</span></div>
-    <div class="stat"><b>78.0%</b><span>בירושלים</span></div>
-    <div class="stat ref"><b>72.8%</b><span>בישראל</span></div>
+    <div class="stat"><b>21.4%</b><span>מקבלים שכר בירושלים</span><small>ישראל: 13.9%</small></div>
+    <div class="stat soft"><b>657</b><span>מקבלי שכר עם מוגבלות שכלית התפתחותית בירושלים</span><small>מתוך 3,148 בכל ישראל</small></div>
   </div>
   <div class="card">
-    <h3>עם אותו תמהיל נכות, בני ברק עוקפת את ירושלים</h3>
-    <p class="note">שיעור מקבלי השכר ב-2024: בפועל, ואילו לכל עיר היה תמהיל אחוזי הנכות של ישראל.</p>
-    <div class="legend"><span class="cm"><i class="sw hollow"></i>בפועל</span><span class="ck"><i class="sw"></i>עם תמהיל הנכות של ישראל</span><span class="c1"><i class="sw"></i>ירושלים, עם אותו תמהיל</span><span class="ck"><i class="sw bar"></i>ישראל, 51.6%</span></div>
-    <div class="chart" data-draw="c_rank"></div>
+    <h3>ככל שמתקרבים למי שמקבל שכר, חלקה של ירושלים גדל</h3>
+    <p class="note">כמה מתוך כל ישראל גרים בירושלים, 2024.</p>
+    <div class="chart" data-draw="c_idshare"></div>
   </div>
-  <div class="ask"><small>שאלה פתוחה</small><b>מה עוד, מעבר לחומרת הנכות, משאיר כ-1,400 ירושלמים בלי שכר?</b><span>הפער נשאר גם כשמשווים אנשים מאותה קבוצת אוכלוסייה, מין, גיל ואחוז נכות. נדרש: נתונים על שכונה, השכלה ותוכניות תעסוקה.</span></div>
-  <details class="check"><summary>איך זה חושב</summary>
-    <p>לכל עיר חושב שיעור מקבלי השכר בכל אחת משש קבוצות אחוזי הנכות, והשיעורים שוקללו לפי חלקה של כל קבוצה בישראל. החישוב משווה רק את אחוזי הנכות, לא גיל, מין או קבוצת אוכלוסייה, וההפרש בין ירושלים לבני ברק קטן מנקודת אחוז.</p>
-    <p>מספר האנשים בשאלה מגיע מהשוואה מפורטת יותר, ב-72 תאים לפי קבוצת אוכלוסייה, מין, גיל ואחוז נכות. אילו בכל תא קיבלו שכר כמו בארץ, השיעור בירושלים היה 49.2%, מול 46.0% בפועל. זה אומדן תיאורי, לא הסבר לסיבה.</p>
+  <div class="ask"><small>שאלה פתוחה</small><b>מה עובד בירושלים, והאם אפשר להעביר את זה לסוגי מוגבלות אחרים?</b><span>נדרש: מיפוי מסגרות התעסוקה בעיר. "קיבלו שכר" כולל כל שכר במהלך השנה, ולכן ייתכן שמדובר גם בתעסוקה נתמכת.</span></div>
+  <details class="check"><summary>איך לקרוא את זה</summary>
+    <p>היתרון קיים בשתי קבוצות האוכלוסייה: 26.2% מול 15.4% אצל יהודים ואחרים, ו-16.6% מול 11.2% אצל ערבים. הלוחות לא מפרטים את סוג התעסוקה או את גובה השכר.</p>
   </details>
   </div>
 </section>
@@ -359,9 +367,9 @@ body{line-height:1.6}
     <div class="stat soft"><b>25.0%</b><span>מכל מי שלא קיבל שכר בעיר: גברים יהודים עם 80% נכות ומעלה</span><small>5,869 אנשים</small></div>
   </div>
   <div class="card">
-    <h3>אותו סוג מוגבלות, אותה עיר: אצל הנשים אין פער</h3>
+    <h3>אצל הגברים יש פער מול הארץ. אצל הנשים אין</h3>
     <p class="note">שיעור מקבלי השכר בקרב יהודים ואחרים עם מוגבלות נפשית רשומה, 2024.</p>
-    <div class="legend"><span class="c1"><i class="sw"></i>ירושלים</span><span class="ck"><i class="sw bar"></i>ישראל</span></div>
+    <div class="legend"><span class="c1"><i class="sw sq2"></i>ירושלים</span><span class="cm"><i class="sw sq2"></i>ישראל</span></div>
     <div class="chart" data-draw="c_mental"></div>
   </div>
   <div class="ask"><small>שאלה פתוחה</small><b>למה נשים יהודיות עם מוגבלות נפשית מקבלות שכר כמו בארץ, וגברים לא?</b><span>נדרש: נתונים על שירותי שיקום ותוכניות תעסוקה בעיר, לפי מין.</span></div>
@@ -371,23 +379,24 @@ body{line-height:1.6}
   </div>
 </section>
 
-<section id="id">
+<section id="profile">
   <div class="kicker"><span>ממצא</span><b>3</b></div>
   <div class="fbody">
-  <h2>אחד מכל חמישה ישראלים עם מוגבלות שכלית התפתחותית שמקבלים שכר גר בירושלים</h2>
-  <p class="say">במוגבלות שכלית התפתחותית ירושלים הרבה מעל הארץ, גם אצל יהודים וגם אצל ערבים.</p>
+  <h2>גם בין אנשים דומים חסרים בעיר כ-1,400 מקבלי שכר</h2>
+  <p class="say">בירושלים יש יותר ערבים ויותר אנשים עם נכות קשה, וזה מסביר חלק מהפער. אבל גם כשמשווים אנשים מאותה קבוצה, מאותו מין וגיל ועם אותה חומרת נכות, ירושלים נשארת מאחור.</p>
   <div class="stats">
-    <div class="stat"><b>21.4%</b><span>מקבלים שכר בירושלים</span><small>ישראל: 13.9%</small></div>
-    <div class="stat soft"><b>657</b><span>מקבלי שכר עם מוגבלות שכלית התפתחותית בירושלים</span><small>מתוך 3,148 בכל ישראל</small></div>
+    <div class="stat soft"><b>36.0%</b><span>מהרשומים בירושלים הם ערבים</span><small>ישראל: 23.6%</small></div>
+    <div class="stat soft"><b>78.0%</b><span>מהרשומים בירושלים הם עם 60% נכות ומעלה</span><small>ישראל: 72.8%</small></div>
   </div>
   <div class="card">
-    <h3>חלקה של ירושלים גדל כמעט פי שלושה כשמגיעים למי שמקבל שכר</h3>
-    <p class="note">חלקה של ירושלים מתוך ישראל, 2024.</p>
-    <div class="chart" data-draw="c_idshare"></div>
+    <h3>מי שגר בעיר מסביר פחות מחצי מהפער</h3>
+    <p class="note">שיעור מקבלי השכר, 2024. השורה האמצעית: מה היה השיעור בירושלים אילו כל קבוצה בעיר קיבלה שכר כמו אותה קבוצה בכל הארץ.</p>
+    <div class="chart" data-draw="c_profile"></div>
   </div>
-  <div class="ask"><small>שאלה פתוחה</small><b>מה עובד בירושלים, והאם אפשר להעביר את זה לסוגי מוגבלות אחרים?</b><span>נדרש: מיפוי מסגרות התעסוקה בעיר. "קיבלו שכר" כולל כל שכר במהלך השנה, ולכן ייתכן שמדובר גם בתעסוקה נתמכת.</span></div>
-  <details class="check"><summary>איך לקרוא את זה</summary>
-    <p>היתרון קיים בשתי קבוצות האוכלוסייה: 26.2% מול 15.4% אצל יהודים ואחרים, ו-16.6% מול 11.2% אצל ערבים. הלוחות לא מפרטים את סוג התעסוקה או את גובה השכר.</p>
+  <div class="ask"><small>שאלה פתוחה</small><b>אם זה לא רק מי שגר בעיר, מה מסביר את הפער שנשאר?</b><span>נדרש: נתונים על שכונה, השכלה ותוכניות תעסוקה.</span></div>
+  <details class="check"><summary>איך זה חושב</summary>
+    <p>הרשומים בירושלים חולקו ל-72 תאים לפי קבוצת אוכלוסייה, מין, קבוצת גיל ואחוז נכות. בכל תא הוכפל מספר הרשומים בעיר בשיעור מקבלי השכר של אותו תא בכל הארץ, והתוצאות סוכמו. תא אחד קטן שהלמ"ס לא מפרסמת נשאר מחוץ לחישוב.</p>
+    <p>ההפרש בין השיעור הזה לשיעור בפועל הוא 3.2 נקודות אחוז, כלומר כ-1,400 אנשים. זה אומדן תיאורי: הוא אומר כמה מהפער נשאר אחרי שמשווים אנשים עם אותו פרופיל, ולא מדוע הוא קיים.</p>
   </details>
   </div>
 </section>
@@ -410,7 +419,7 @@ body{line-height:1.6}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script>
 /* Charts for the Jerusalem 2024 page. All series are precomputed in build_page.py. */
-const DATA = {"rank":[{"label":"בית שמש","obs":46.9,"std":51.5,"n":6271,"e":2943},{"label":"בני ברק","obs":40.7,"std":48.7,"n":8390,"e":3417},{"label":"ירושלים","obs":46.0,"std":47.9,"n":43461,"e":19984}],"mental":[{"label":"גברים","jlm":38.7,"il":44.7,"n":8374,"e":3238,"iln":116887,"ile":52280},{"label":"נשים","jlm":53.7,"il":53.0,"n":5729,"e":3077,"iln":89300,"ile":47302}],"idshare":[{"label":"מכלל הרשומים במרשם","v":7.5,"cls":"cm"},{"label":"מהרשומים עם מוגבלות שכלית התפתחותית","v":13.6,"cls":"cm"},{"label":"ממקבלי השכר עם מוגבלות שכלית התפתחותית","v":20.9,"cls":"c1"}],"il_rate":51.6};
+const DATA = {"mental":[{"label":"גברים","jlm":38.7,"il":44.7,"n":8374,"e":3238,"iln":116887,"ile":52280},{"label":"נשים","jlm":53.7,"il":53.0,"n":5729,"e":3077,"iln":89300,"ile":47302}],"idshare":[{"label":"מכלל הרשומים במרשם","v":7.5,"cls":"cm"},{"label":"מהרשומים עם מוגבלות שכלית התפתחותית","v":13.6,"cls":"cm"},{"label":"ממקבלי השכר עם מוגבלות שכלית התפתחותית","v":20.9,"cls":"c1"}],"profile":[{"label":"ישראל","v":51.6,"cls":"ck"},{"label":"ירושלים, אילו כל קבוצה קיבלה שכר כמו בארץ","v":49.2,"cls":"cm"},{"label":"ירושלים בפועל","v":46.0,"cls":"c1"}]};
 const f1 = d3.format('.1f');
 const fint = d3.format(',');
 const pct = (v) => f1(v) + '%';
@@ -508,41 +517,65 @@ const versus = (rows) => rows.map((r) => ({
 }));
 const HEADS = ['ירושלים', 'ישראל'];
 
+/* Plain horizontal bars from zero: one bar per row, the point in the accent colour. */
+function simpleBars(el, rows, max, labelWidth) {
+  const wrap = h('div', 'bars roomy');
+  if (labelWidth) wrap.style.setProperty('--blab', labelWidth);
+  for (const d of rows) {
+    const row = h('div', 'brow' + (d.cls === 'cm' ? '' : ' strong'));
+    row.append(h('div', 'plab', d.label));
+    const t = h('div', 'btrack');
+    const s = h('span', 'seg ' + d.cls);
+    s.style.width = (d.v / max * 78) + '%';
+    if (d.tip) s.setAttribute('data-tip', d.tip);
+    t.append(s, h('span', 'bval', pct(d.v)));
+    row.append(t);
+    wrap.append(row);
+  }
+  el.append(wrap);
+  withTip(el);
+}
+
+/* Two bars per group, for "this vs that" inside the same group. */
+function pairBars(el, groups, max, labelWidth) {
+  const wrap = h('div', 'bars pairs');
+  if (labelWidth) wrap.style.setProperty('--blab', labelWidth);
+  for (const g of groups) {
+    const row = h('div', 'wgroup');
+    row.append(h('div', 'plab', g.label));
+    const bars = h('div', 'wbars');
+    g.bars.forEach((b, k) => {
+      const t = h('div', 'btrack');
+      const s = h('span', 'seg ' + b.cls);
+      s.style.width = (b.v / max * 78) + '%';
+      if (b.tip) s.setAttribute('data-tip', b.tip);
+      const val = h('span', 'bval', pct(b.v));
+      if (k === 0) val.classList.add('strongval');
+      t.append(s, val);
+      bars.append(t);
+    });
+    row.append(bars);
+    wrap.append(row);
+  }
+  el.append(wrap);
+  withTip(el);
+}
+
 const draws = {
-  c_rank(el) {
-    rowsPlot(el, {domain: [38, 54], ticks: [40, 45, 50], tickFmt: pct0, heads: ['באותו תמהיל', 'בפועל'], valWidth: '5.4rem', labelWidth: '5.2rem',
-      ref: DATA.il_rate, rows: DATA.rank.map((r) => {
-        const me = r.label === 'ירושלים';
-        return {
-          label: r.label, cls: me ? 'strong' : '',
-          links: [[r.obs, r.std]],
-          marks: [
-            {v: r.obs, cls: 'cm hollow', tip: r.label + '\nבפועל: ' + pct(r.obs) + ' (' + fint(r.e) + ' מתוך ' + fint(r.n) + ')'},
-            {v: r.std, cls: me ? 'c1' : 'ck', tip: r.label + '\nעם תמהיל אחוזי הנכות של ישראל: ' + pct(r.std)},
-          ],
-          vals: [pct(r.std), pct(r.obs)],
-        };
-      })});
-    withTip(el);
+  c_idshare(el) {
+    simpleBars(el, DATA.idshare, 25, '11rem');
   },
   c_mental(el) {
-    rowsPlot(el, {domain: [0, 80], ticks: [0, 20, 40, 60, 80], tickFmt: pct0, heads: HEADS, rows: versus(DATA.mental), labelWidth: '4rem', keep: true, cls: 'roomy'});
-    withTip(el);
+    pairBars(el, DATA.mental.map((r) => ({
+      label: r.label,
+      bars: [
+        {v: r.jlm, cls: 'c1', tip: r.label + '\n' + tipLine('ירושלים', r.jlm, r.e, r.n)},
+        {v: r.il, cls: 'cm', tip: r.label + '\n' + tipLine('ישראל', r.il, r.ile, r.iln)},
+      ],
+    })), 65, '4rem');
   },
-  c_idshare(el) {
-    const wrap = h('div', 'bars roomy');
-    wrap.style.setProperty('--blab', '11rem');
-    for (const d of DATA.idshare) {
-      const row = h('div', 'brow' + (d.cls === 'c1' ? ' strong' : ''));
-      row.append(h('div', 'plab', d.label));
-      const t = h('div', 'btrack');
-      const s = h('span', 'seg ' + d.cls);
-      s.style.width = (d.v / 25 * 78) + '%';
-      t.append(s, h('span', 'bval', pct(d.v)));
-      row.append(t);
-      wrap.append(row);
-    }
-    el.append(wrap);
+  c_profile(el) {
+    simpleBars(el, DATA.profile, 60, '11rem');
   },
 };
 document.querySelectorAll('[data-draw]').forEach((el) => { el.replaceChildren(); draws[el.dataset.draw](el); });
