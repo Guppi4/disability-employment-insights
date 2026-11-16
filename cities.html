@@ -1,0 +1,563 @@
+<!doctype html><html lang="he"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>מוגבלות ותעסוקה בערים</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;600;700&family=Karantina:wght@400;700&display=swap">
+<style>
+/* layout: a statistical bulletin of six numbered findings. The numeral sits in a margin column and stays in view; evidence fills the wide column. The page opens with a 100-person unit chart. */
+:root{
+  --paper:#f3f5f8; --panel:#ffffff; --ink:#0d1b2a; --ink2:#42526a; --rule:#c8d1dc; --tint:#e6edf7;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --muted:#bcc5d1; --link:#1c5cab; --grid:#e3e8ef; --ref:#7b889b; --bad:#d03b3b;
+  --shadow:0 6px 20px rgba(13,27,42,.18);
+  --display:"Frank Ruhl Libre","David Libre","Times New Roman",serif;
+  --text:"Assistant","Heebo","Segoe UI",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0b1320; --panel:#131d2e; --ink:#edf1f7; --ink2:#a9b6c9; --rule:#2c3a52; --tint:#17263d;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --muted:#4b5a72; --link:#86b6ef; --grid:#1e2a3f; --ref:#8795aa; --bad:#e66767;
+    --shadow:0 6px 20px rgba(0,0,0,.5); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0b1320; --panel:#131d2e; --ink:#edf1f7; --ink2:#a9b6c9; --rule:#2c3a52; --tint:#17263d;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --muted:#4b5a72; --link:#86b6ef; --grid:#1e2a3f; --ref:#8795aa; --bad:#e66767;
+  --shadow:0 6px 20px rgba(0,0,0,.5); color-scheme:dark;
+}
+body{background:var(--paper);color:var(--ink);font-family:var(--text);font-size:1.0625rem;line-height:1.7}
+.page{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:2.5rem 4rem}
+.ins{
+  /* names the chart code reads */
+  --color-panel:var(--panel); --color-fg:var(--ink); --color-bad:var(--bad);
+  --cds-chart-grid:var(--grid); --cds-chart-reference:var(--ref); --cds-chart-muted:var(--muted); --cds-chart-axis:var(--ref);
+  --cds-surface-popover:var(--panel); --cds-border:var(--rule); --cds-shadow-popover:var(--shadow); --cds-dur-slow:.2s;
+  --fs-0:.875rem; --fs-1:1.0625rem; --fs-2:1.3125rem; --fs-3:2rem;
+  container-type:inline-size;max-width:76rem;margin-inline:auto;display:flex;flex-direction:column;gap:4rem;font-variant-numeric:tabular-nums;
+}
+.ins b{font-weight:700}
+.ins p{margin:0;max-width:64ch}
+.ins h1,.ins h2,.ins h3{margin:0;text-wrap:balance}
+.ins h1{font-family:var(--display);font-weight:900;font-size:clamp(2.5rem,4.4cqi + 1rem,4.75rem);line-height:1.05;letter-spacing:-.01em}
+.ins h2{font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,1.2cqi + 1.1rem,var(--fs-3));line-height:1.25;max-width:30ch}
+.ins h3{font-size:var(--fs-1);font-weight:700;line-height:1.4}
+.ins .lead{font-size:var(--fs-2);line-height:1.6;max-width:44ch}
+.ins .note{color:var(--ink2);font-size:var(--fs-0);line-height:1.55}
+.ins a{color:inherit}
+.ins a:focus-visible,.ins button:focus-visible,.ins summary:focus-visible{outline:3px solid var(--link);outline-offset:3px}
+
+/* hero */
+.ins .hero{display:flex;flex-direction:column;gap:1.75rem}
+.ins .dateline{font-size:var(--fs-0);font-weight:700;color:var(--ink2);letter-spacing:.04em;max-width:none}
+.ins .hero-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:2.25rem;align-items:start}
+@container (min-width:58rem){.ins .hero-grid{grid-template-columns:minmax(0,1fr) auto;gap:3.5rem}}
+.ins .hero-text{display:flex;flex-direction:column;gap:1.1rem}
+.ins .waffle-fig{margin:0;display:flex;flex-direction:column;gap:.9rem;background:var(--panel);border:1px solid var(--rule);padding:1.5rem;min-width:0}
+.ins .waffle-fig figcaption{display:flex;flex-direction:column;gap:.15rem}
+.ins .waffle-fig figcaption b{font-family:var(--display);font-size:1.35rem;line-height:1.3}
+.ins .waffle{display:flex;flex-wrap:wrap;gap:1.5rem 2rem;align-items:flex-start;min-height:0}
+.ins .wgrp{display:flex;flex-direction:column;gap:.55rem;max-width:14rem}
+.ins .wgrp-title{font-size:var(--fs-0);font-weight:700;line-height:1.35}
+.ins .wgrp-sub{font-size:var(--fs-0);color:var(--ink2);line-height:1.35}
+.ins .wcells{display:grid;grid-template-columns:repeat(var(--cols),1.05rem);gap:4px}
+.ins .wc{width:1.05rem;height:1.05rem;background:color-mix(in oklab,var(--s1) 28%,var(--panel))}
+.ins .wc.no{background:var(--ink)}
+.ins .waffle-key{font-family:var(--display);font-size:1.2rem;line-height:1.35;max-width:24ch}
+.ins .waffle-key b{font-weight:900;color:var(--link)}
+.ins .sw.sq{border-radius:0;background:color-mix(in oklab,var(--s1) 28%,var(--panel))}
+.ins .sw.sq.no{background:var(--ink)}
+
+/* key figures */
+.ins .tiles{display:grid;grid-template-columns:1fr;gap:1.75rem}
+@container (min-width:40rem){.ins .tiles{grid-template-columns:repeat(3,1fr)}}
+
+/* folded "how to read" / "what to check" boxes */
+.ins details.check{padding-block:.8rem}
+.ins details.check summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:.6rem;font-family:var(--display);font-weight:700;font-size:1.1rem}
+.ins details.check summary::-webkit-details-marker{display:none}
+.ins details.check summary::before{content:"+";display:inline-grid;place-items:center;width:1.35rem;height:1.35rem;border:1.5px solid var(--ink);font-family:var(--text);font-weight:700;line-height:1}
+.ins details.check[open] summary::before{content:"−"}
+.ins details.check[open] summary{margin-bottom:.35rem}
+.ins .tile{display:flex;flex-direction:column;gap:.35rem;border-top:3px solid var(--ink);padding-top:.9rem;min-width:0}
+.ins .big{font-family:var(--display);font-weight:900;font-size:clamp(2.2rem,3.3cqi,3rem);line-height:1.05;direction:rtl}
+.ins .big small{font-family:var(--text);font-weight:400;font-size:var(--fs-1);color:var(--ink2)}
+
+/* index of findings */
+.ins .toc{display:grid;grid-template-columns:1fr;gap:0 2.5rem}
+@container (min-width:44rem){.ins .toc{grid-template-columns:repeat(2,1fr)}}
+@container (min-width:68rem){.ins .toc{grid-template-columns:repeat(4,1fr)}}
+.ins .toc a{display:grid;grid-template-columns:2.2rem minmax(0,1fr);align-items:baseline;gap:.5rem;padding-block:.8rem;border-top:1px solid var(--rule);text-decoration:none;line-height:1.4;font-weight:600}
+.ins .toc a b{font-family:var(--display);font-weight:900;font-size:1.6rem;color:var(--link);line-height:1}
+.ins .toc a:hover span{text-decoration:underline;text-underline-offset:.2em}
+
+/* findings */
+.ins section{display:grid;grid-template-columns:minmax(0,1fr);gap:1rem;border-top:3px solid var(--ink);padding-top:1.75rem;scroll-margin-top:1rem}
+@container (min-width:58rem){.ins section{grid-template-columns:6.5rem minmax(0,1fr);column-gap:2rem}.ins section>.fbody{grid-column:2}}
+.ins .fbody{display:flex;flex-direction:column;gap:1.35rem;min-width:0}
+.ins .kicker{display:flex;flex-direction:row;align-items:baseline;gap:.6rem;align-self:start}
+@container (min-width:58rem){.ins .kicker{flex-direction:column;gap:0;position:sticky;top:calc(env(safe-area-inset-top,0px) + 1.25rem)}}
+.ins .kicker span{font-size:var(--fs-0);font-weight:700;letter-spacing:.06em;color:var(--ink2)}
+.ins .kicker b{font-family:var(--display);font-weight:900;font-size:clamp(3rem,6cqi,5.25rem);line-height:.95;color:var(--link)}
+
+.ins .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,25rem),1fr));gap:1.25rem}
+.ins .card{background:var(--panel);border:1px solid var(--rule);padding:1.5rem;min-width:0;display:flex;flex-direction:column;gap:.7rem}
+.ins .check{background:var(--tint);padding:1.15rem 1.4rem;max-width:68ch;display:flex;flex-direction:column;gap:.4rem}
+.ins .check>b{font-family:var(--display);font-size:1.15rem}
+.ins .check p{max-width:none}
+.ins .chart{min-height:12rem;position:relative;min-width:0}
+.ins .chart.tall{min-height:22rem}
+.ins .waffle-fig .chart{min-height:0}
+.ins .legend{display:flex;flex-wrap:wrap;gap:.3rem 1.2rem;font-size:var(--fs-0);color:var(--ink2)}
+.ins .legend span{display:inline-flex;align-items:center;gap:.45rem}
+.ins .sw{width:.8rem;height:.8rem;border-radius:50%;background:var(--sw);display:inline-block;flex:none}
+.ins .sw.hollow{background:transparent;border:2px solid var(--sw);box-sizing:border-box}
+.ins .sw.line{width:1.2rem;height:0;border-radius:0;border-top:2px dashed var(--sw);background:none}
+.ins .sw.bar{width:3px;height:1rem;border-radius:1px}
+.ins .c0{--sw:var(--c0);--dot:var(--c0)}.ins .c1{--sw:var(--c1);--dot:var(--c1)}.ins .c2{--sw:var(--c2);--dot:var(--c2)}
+.ins .cm{--sw:var(--muted);--dot:var(--muted)}
+.ins .cr{--sw:var(--ref)}
+.ins .ck{--sw:var(--ink)}
+.tipbox{position:relative}
+.ins .tip{position:absolute;z-index:5;pointer-events:none;white-space:pre-line;background:var(--panel);border:1px solid var(--ink);box-shadow:var(--shadow);padding:.45rem .7rem;font-size:var(--fs-0);line-height:1.45;max-width:16rem}
+.ins .plot{display:flex;flex-direction:column;--lab:7.5rem}
+.ins .prow{display:grid;grid-template-columns:var(--lab) minmax(0,1fr);align-items:center;gap:.6rem;min-height:2.7rem}
+.ins .prow.tight{min-height:2.2rem}
+.ins .plab{font-size:var(--fs-0);line-height:1.3;min-width:0}
+.ins .prow.strong .plab{font-weight:700}
+.ins .psub{display:block;color:var(--ink2);font-weight:400}
+.ins .ptrack{position:relative;height:100%;min-height:inherit}
+.ins .gl{position:absolute;top:0;bottom:0;width:1px;background:var(--grid)}
+.ins .gl.zero{background:var(--ref)}
+.ins .plink{position:absolute;top:50%;height:2px;margin-top:-1px;background:var(--muted)}
+.ins .pdot{position:absolute;top:50%;width:.85rem;height:.85rem;border-radius:50%;background:var(--dot);box-shadow:0 0 0 2px var(--panel);transform:translate(50%,-50%);box-sizing:border-box}
+.ins .pdot.hollow{background:var(--panel);border:2.5px solid var(--dot)}
+.ins .pdot.soft{opacity:.75}
+.ins .pdot::after{content:"";position:absolute;inset:-.45rem}
+.ins .pdot.il{width:3px;height:1.8rem;border-radius:0;background:var(--ink);box-shadow:none}
+.ins .ptext{position:absolute;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:var(--fs-0);line-height:1}
+.ins .ptext.after{margin-inline-start:.75rem}
+.ins .ptext.before{margin-inline-end:.75rem}
+.ins .paxis{min-height:1.6rem}
+.ins .ptick{position:absolute;top:.3rem;transform:translateX(50%);font-size:var(--fs-0);color:var(--ink2);line-height:1}
+.ins .capt{display:flex;justify-content:space-between;font-size:var(--fs-0);color:var(--ink2);margin-inline-start:calc(var(--lab,7.5rem) + .6rem)}
+.ins .bars{display:flex;flex-direction:column;gap:.45rem}
+.ins .bars.roomy{gap:1.05rem;padding-block:.6rem}
+.ins .brow{display:grid;grid-template-columns:var(--blab,6.8rem) minmax(0,1fr);align-items:center;gap:.6rem}
+.ins .btrack{display:flex;align-items:center;gap:2px;min-height:1.6rem;position:relative}
+.ins .seg{display:block;height:1.2rem;min-width:2px;background:var(--dot)}
+.ins .bars.roomy .seg{height:1.6rem}
+.ins .bval{margin-inline-start:.55rem;font-size:var(--fs-0);white-space:nowrap}
+.ins .refl{position:absolute;top:0;bottom:0;border-inline-start:1.5px dashed var(--ref);pointer-events:none}
+.ins .wgroup{display:grid;grid-template-columns:var(--blab,6.8rem) minmax(0,1fr);gap:.6rem;align-items:center;padding-block:.45rem}
+.ins .wbars{display:flex;flex-direction:column;gap:2px}
+.ins .heat{display:grid;grid-template-columns:minmax(5.5rem,1.5fr) repeat(4,minmax(3.2rem,1fr));gap:2px;font-size:var(--fs-0);line-height:1.3}
+.ins .hc{padding:.6rem .35rem;text-align:center;display:flex;align-items:center;justify-content:center;min-height:2.7rem}
+.ins .hh{flex-direction:column;font-weight:700}
+.ins .hh small{font-weight:400;color:var(--ink2);font-size:inherit}
+.ins .hl{justify-content:flex-start;text-align:start}
+.ins .hl.strong{font-weight:700}
+.ins .hna{color:var(--ink2)}
+.ins .twrap{overflow-x:auto}
+.ins table{border-collapse:collapse;width:100%;font-size:var(--fs-0)}
+.ins th{text-align:start;font-weight:700;padding:0;border-bottom:2px solid var(--ink)}
+.ins th button{all:unset;display:block;cursor:pointer;padding:.55rem .6rem;width:100%;box-sizing:border-box}
+.ins th button:hover{text-decoration:underline;text-underline-offset:.2em}
+.ins th[aria-sort=descending] button::after{content:" ▾"}
+.ins th[aria-sort=ascending] button::after{content:" ▴"}
+.ins td{padding:.45rem .6rem;border-bottom:1px solid var(--rule);white-space:nowrap}
+.ins tr.il td{font-weight:700;background:var(--tint)}
+.ins .cellbar{display:inline-block;height:.65rem;width:calc(var(--w) * 3.6rem / 100);background:var(--dot,var(--c0));margin-inline-end:.5rem;vertical-align:baseline}
+.ins .seg-ctl{display:inline-flex;gap:0;border:1.5px solid var(--ink);align-self:flex-start;flex-wrap:wrap}
+.ins .seg-ctl button{all:unset;cursor:pointer;padding:.3rem .95rem;font-size:var(--fs-0);font-weight:600;color:var(--ink)}
+.ins .seg-ctl button[aria-pressed=true]{background:var(--ink);color:var(--panel)}
+.ins svg{display:block;overflow:visible}
+.ins svg text{font-family:var(--text);font-size:var(--fs-0);fill:var(--ink2)}
+.ins svg text.ink{fill:var(--ink)}
+.ins svg text.halo{paint-order:stroke;stroke:var(--panel);stroke-width:3px;stroke-linejoin:round}
+.ins .panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr));gap:1.75rem}
+.ins .ptitle{font-size:var(--fs-0);font-weight:700;margin-block-end:.25rem}
+.ins ul.plain{margin:0;padding-inline-start:1.2rem;display:flex;flex-direction:column;gap:.75rem;max-width:66ch}
+.ins .qs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr));gap:1.5rem 2.5rem}
+.ins .q{border-top:1px solid var(--rule);padding-top:.8rem;display:flex;flex-direction:column;gap:.3rem}
+.ins details summary{cursor:pointer;font-weight:700}
+.ins details ul{margin-block:.85rem 0}
+.ins .fail{display:flex;align-items:center;justify-content:center;gap:.4rem;min-height:inherit;color:var(--ink2);font-size:var(--fs-0)}
+.ins .dash-skeleton{background:var(--grid)}
+.ins footer{border-top:1px solid var(--rule);padding-top:1.25rem}
+.ins .fbody>h3{font-family:var(--display);font-weight:700;font-size:1.45rem;line-height:1.3;max-width:34ch;margin-top:.75rem}
+
+/* ---- Jerusalem page additions ---- */
+.ins{--c0:var(--s1);--c1:var(--s2);--c2:var(--s3)}
+.ins .ck{--dot:var(--ink)}
+@container (min-width:58rem){.ins .hero-fig{width:31rem}}
+.ins .plot.cmp .prow{grid-template-columns:var(--lab) minmax(0,1fr) repeat(var(--nv,2),var(--vw,3.3rem));column-gap:.5rem}
+.ins .plot.cmp .ptrack{min-height:2.2rem}
+.ins .pval{font-size:var(--fs-0);text-align:end;white-space:nowrap;color:var(--ink2);line-height:1.2}
+.ins .pval.strong{font-weight:700;color:var(--ink)}
+.ins .phead{min-height:1.5rem}
+.ins .plot.cmp .phead .ptrack{min-height:0}
+.ins .phead .pval{font-size:.8125rem}
+.ins .brow.strong .plab,.ins .brow.strong .bval{font-weight:700}
+.ins .q p{max-width:none}
+@container (max-width:40rem){
+  .ins .plot.cmp:not(.keep) .prow{grid-template-columns:minmax(0,1fr) repeat(var(--nv,2),var(--vw,3.3rem));row-gap:0;padding-block:.3rem}
+  .ins .plot.cmp:not(.keep) .plab{grid-column:1/-1;font-weight:600}
+  .ins .plot.cmp:not(.keep) .phead .plab,.ins .plot.cmp:not(.keep) .paxis .plab{display:none}
+}
+.ins .panels.two{grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:2rem 3rem}
+.ins .plot.cmp.roomy .prow:not(.phead):not(.paxis){min-height:3.4rem}
+.ins .bars.tight{gap:.25rem}
+.ins .bars.tight .seg{height:1rem}
+.ins .bars.tight .btrack{min-height:1.35rem}
+.ins .chart{min-height:0}
+
+/* ==== story theme (2026-11-16): poster headline, big numbers, one idea per screen ====
+   Appended after the base stylesheet of both pages. Series colors validated with dataviz/validate_palette.js
+   against the panel surface in light and dark (blue + vermilion, CVD dE 24+). */
+:root{
+  --paper:#f4efe5; --panel:#fffdf9; --ink:#191714; --ink2:#5d564b; --rule:#d8cfbd; --tint:#ebe3d2;
+  --s1:#2a78d6; --s2:#e2552c; --s3:#1baf7a; --muted:#c9c1b2; --link:#b93f1c; --grid:#ebe5d8; --ref:#857c6e;
+  --display:"Karantina","Frank Ruhl Libre","Arial Narrow",sans-serif;
+  --text:"IBM Plex Sans Hebrew","Assistant","Segoe UI",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#14110e; --panel:#1d1915; --ink:#f4eee3; --ink2:#b8ad9c; --rule:#3b342b; --tint:#27211a;
+    --s1:#3987e5; --s2:#e8663d; --s3:#199e70; --muted:#5a5145; --link:#ff9068; --grid:#2a241d; --ref:#9a8f7f;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#14110e; --panel:#1d1915; --ink:#f4eee3; --ink2:#b8ad9c; --rule:#3b342b; --tint:#27211a;
+  --s1:#3987e5; --s2:#e8663d; --s3:#199e70; --muted:#5a5145; --link:#ff9068; --grid:#2a241d; --ref:#9a8f7f;
+}
+.ins{--c0:var(--s1);--c1:var(--s2);--c2:var(--s3);gap:5rem;--fs-2:1.4rem}
+body{line-height:1.6}
+
+/* headline: a claim, set like a poster */
+.ins h1{font-family:var(--display);font-weight:700;font-size:clamp(4.2rem,11cqi,10rem);line-height:.86;letter-spacing:0;max-width:12ch}
+.ins h1 em{font-style:normal;color:var(--s2)}
+.ins h2{font-family:var(--display);font-weight:700;font-size:clamp(2.6rem,4.6cqi,4.4rem);line-height:.95;max-width:22ch}
+.ins h3{font-size:1.2rem;font-weight:700;line-height:1.35}
+.ins .lead{font-size:clamp(1.3rem,1.1cqi + 1rem,1.7rem);line-height:1.45;font-weight:500;max-width:34ch}
+.ins .say{font-size:var(--fs-2);line-height:1.5;font-weight:500;max-width:44ch}
+.ins .dateline{letter-spacing:.02em;font-weight:600}
+.ins .hero{gap:2rem}
+.ins .hero-grid{align-items:end}
+.ins .waffle-fig{border:0;border-top:5px solid var(--ink);padding:1.4rem 1.5rem 1.5rem}
+.ins .waffle-fig figcaption b{font-family:var(--text);font-weight:700;font-size:1.25rem}
+.ins .waffle-key{font-family:var(--text);font-weight:500}
+.ins .waffle-key b{font-weight:700;color:var(--ink)}
+
+/* numbers leave the paragraphs and stand on their own */
+.ins .tiles{gap:1.5rem 2.5rem}
+.ins .tile{border-top:5px solid var(--ink);padding-top:.7rem;gap:.15rem}
+.ins .big{font-family:var(--display);font-weight:700;font-size:clamp(4rem,7cqi,6.2rem);line-height:.9}
+.ins .big small{font-family:var(--text);font-weight:600;font-size:1.1rem}
+.ins .tile>div:nth-child(2){font-weight:600;font-size:1.1rem;line-height:1.35}
+.ins .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13.5rem),1fr));gap:1.5rem 2.25rem}
+.ins .stat{display:flex;flex-direction:column;gap:.1rem;border-inline-start:5px solid var(--s2);padding-inline-start:1rem}
+.ins .stat.ref{border-color:var(--ink)}
+.ins .stat.soft{border-color:var(--muted)}
+.ins .stat b{font-family:var(--display);font-weight:700;font-size:clamp(3.4rem,5.2cqi,4.6rem);line-height:.9}
+.ins .stat span{font-weight:600;line-height:1.3}
+.ins .stat small{color:var(--ink2);font-size:var(--fs-0);line-height:1.4}
+
+/* chapters */
+.ins section{border-top:5px solid var(--ink);padding-top:2rem;gap:1.25rem}
+.ins .fbody{gap:1.75rem}
+.ins .kicker b{font-family:var(--display);font-weight:700;font-size:clamp(4.5rem,8cqi,7.5rem);line-height:.8;color:var(--s2)}
+.ins .kicker span{letter-spacing:.02em}
+.ins .card{border:0;border-top:3px solid var(--ink);padding:1.5rem 1.6rem 1.7rem;gap:.8rem}
+.ins .check,.ins details.check{background:var(--tint)}
+.ins details.check summary{font-family:var(--text);font-size:1rem}
+.ins .q{border-top:3px solid var(--ink);padding-top:.9rem}
+.ins .q b,.ins .q h3{font-size:1.15rem;line-height:1.35}
+.ins .fbody>h3{font-family:var(--text)}
+
+/* charts: larger marks, the highlighted series in vermilion */
+.ins .pdot{width:1rem;height:1rem}
+.ins .pdot.il{width:4px;height:2rem}
+.ins .plot.cmp .ptrack{min-height:2.6rem}
+.ins .pval{font-size:1rem}
+.ins .pval.strong{font-size:1.05rem}
+.ins .phead .pval{font-size:.8125rem}
+.ins .plab{font-size:.95rem}
+.ins .seg{border-radius:0 0 0 0}
+.ins .toc{display:none}
+
+@media (prefers-reduced-motion:no-preference){
+  .ins .hero>*{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+  .ins .hero>*:nth-child(2){animation-delay:.08s}
+  .ins .hero>*:nth-child(3){animation-delay:.2s}
+  .ins .hero>*:nth-child(4){animation-delay:.32s}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+}
+
+/* numerals: the poster face draws 8 too close to 0, so figures use the text face */
+.ins .stat b,.ins .big{font-family:var(--text);font-weight:700;letter-spacing:-.03em;line-height:1}
+.ins .stat b{font-size:clamp(2.5rem,3.6cqi,3.3rem)}
+.ins .big{font-size:clamp(2.8rem,4.6cqi,4rem)}
+.ins .hero-grid{align-items:start}
+@container (min-width:58rem){.ins .hero-fig{width:34rem}}
+.ins .big small,.ins .stat b small{font-family:var(--text);font-size:1.05rem;font-weight:600;letter-spacing:0;color:var(--ink2);margin-inline-start:.25rem}
+.ins .stat.a{border-color:var(--s1)}
+
+/* the open question each finding leaves behind */
+.ins .ask{display:flex;flex-direction:column;gap:.3rem;border-inline-start:5px solid var(--ink);padding-inline-start:1.1rem;max-width:58ch}
+.ins .ask small{font-weight:700;color:var(--link);font-size:var(--fs-0);letter-spacing:.03em}
+.ins .ask b{font-size:1.3rem;line-height:1.35}
+.ins .ask span{color:var(--ink2);line-height:1.5}
+.ins .asks{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));gap:1.5rem 2.5rem}
+.ins .chart:not(.tall){min-height:0}
+
+/* second-layer pages: one line of shared context under the headline */
+.ins .known{border-block:1px solid var(--rule);padding-block:.95rem;color:var(--ink2);max-width:none;line-height:1.6}
+.ins .known b{color:var(--ink)}
+.ins .hero .lead{max-width:40ch}
+.ins .gl.refline{background:var(--ink);width:2px}
+.ins .prow.strong .plab{font-weight:700}
+.ins h1{max-width:18ch;font-size:clamp(3.6rem,9.5cqi,8.5rem)}
+
+</style>
+<div class="page"><div class="ins" dir="rtl" lang="he">
+
+<header class="hero">
+  <p class="dateline">תעסוקת אנשים עם מוגבלות · מרשם הלמ"ס · נתוני 2022 · ישראל ו-18 ערים גדולות</p>
+  <h1 id="top">שלושה דברים שהממוצע <em>מסתיר</em></h1>
+  <p class="lead">פגיעות ראש, נשים, ומי שבכלל רשום במרשם: שלושה ממצאים על תעסוקת אנשים עם מוגבלות שנעלמים בתוך המספר הכללי.</p>
+  <p class="known"><b>כבר ידוע:</b> 50.4% מהרשומים במרשם קיבלו שכר מעבודה ב-2022. מ-60% נכות ומעלה השיעור יורד מתחת לחצי, ושם גם נפתחים הפערים בין הערים. בערים מבוססות השיעור גבוה יותר.</p>
+</header>
+
+<section id="head">
+  <div class="kicker"><span>ממצא</span><b>1</b></div>
+  <div class="fbody">
+  <h2>פגיעות ראש: ארבע מכל עשר מוגבלויות פיזיות, והרבה פחות שכר</h2>
+  <p class="say">במרשם, פגיעות ראש נספרות בתוך "מוגבלות פיזית". כשמפרידים אותן, מתגלות שתי קבוצות שונות מאוד.</p>
+  <div class="stats">
+    <div class="stat"><b>35.9%</b><span>מקבלים שכר עם פגיעת ראש</span></div>
+    <div class="stat ref"><b>47.4%</b><span>מקבלים שכר עם מוגבלות פיזית אחרת</span></div>
+    <div class="stat soft"><b>41.3%</b><span>מהרשומים עם מוגבלות פיזית: פגיעת ראש</span><small>89,994 אנשים</small></div>
+  </div>
+  <div class="card">
+    <h3>בכל גיל ומין, עם פגיעת ראש מקבלים שכר הרבה פחות</h3>
+    <p class="note">שיעור מקבלי השכר, ישראל 2022.</p>
+    <div class="legend"><span class="c1"><i class="sw"></i>פגיעת ראש</span><span class="ck"><i class="sw bar"></i>מוגבלות פיזית אחרת</span></div>
+    <div class="chart" data-draw="c_head"></div>
+  </div>
+  <div class="ask"><small>שאלה פתוחה</small><b>מה מקשה על עבודה עם פגיעת ראש יותר מאשר עם מוגבלות פיזית אחרת?</b><span>נדרש: אחוזי נכות ומסגרות שיקום לפי סוג הפגיעה.</span></div>
+  <details class="check"><summary>איך לקרוא את זה</summary>
+    <p>"מוגבלות פיזית אחרת" חושבה כמוגבלות פיזית פחות פגיעות ראש, לפי השורה "מזה: פגיעות ראש" בלוח הלמ"ס. ההשוואה אינה מותאמת לאחוז הנכות, ואדם יכול להיות רשום ביותר מסוג מוגבלות אחד. גם בגיל 55 ומעלה השיעור עם פגיעת ראש נמוך יותר, אצל גברים ואצל נשים.</p>
+  </details>
+  </div>
+</section>
+
+<section id="women">
+  <div class="kicker"><span>ממצא</span><b>2</b></div>
+  <div class="fbody">
+  <h2>באותה רמת נכות, נשים מקבלות שכר לא פחות מגברים</h2>
+  <p class="say">בסך הכול גברים מקבלים שכר יותר מנשים. אבל לנשים במרשם יש בממוצע נכות קשה יותר, וכשמשווים באותה קבוצת נכות הן מקדימות.</p>
+  <div class="stats">
+    <div class="stat"><b>82.9%</b><span>מהנשים בנות 35-54 במרשם הן עם 60% נכות ומעלה</span></div>
+    <div class="stat ref"><b>63.5%</b><span>מהגברים בני 35-54</span></div>
+  </div>
+  <div class="card">
+    <h3>עם אותו תמהיל נכות, הנשים עוקפות את הגברים</h3>
+    <p class="note">שיעור מקבלי השכר בגיל 35-54, ישראל 2022.</p>
+    <div class="legend"><span class="c1"><i class="sw"></i>נשים</span><span class="ck"><i class="sw bar"></i>גברים</span></div>
+    <div class="chart" data-draw="c_women"></div>
+  </div>
+  <div class="ask"><small>שאלה פתוחה</small><b>למה בקבוצות הנכות הקלה יש במרשם כמעט רק גברים?</b><span>86.9% מהרשומים עם עד 19% נכות הם גברים. נדרש: מקור ההכרה (ביטוח לאומי, רווחה, משרד הביטחון) לפי מין ואחוז נכות.</span></div>
+  <details class="check"><summary>איך לקרוא את זה</summary>
+    <p>בגילאי 18-34 ו-35-54, בכל ארבע קבוצות אחוזי הנכות הידועות, שיעור הנשים שווה לזה של הגברים או גבוה ממנו (8 מתוך 8 השוואות). כך גם בגיל 55 ומעלה, אבל שם טווחי הגיל שונים: נשים עד 62 וגברים עד 67. בקבוצת "אחוז לא ידוע" גברים מקדימים.</p>
+    <p>השיעור "עם תמהיל הנכות של הגברים" הוא שיעור הנשים בכל קבוצת נכות, משוקלל לפי חלקה של הקבוצה בקרב הגברים.</p>
+  </details>
+  </div>
+</section>
+
+<section id="registry">
+  <div class="kicker"><span>ממצא</span><b>3</b></div>
+  <div class="fbody">
+  <h2>ככל שהעיר מבוססת פחות, יש במרשם פחות נכות קלה</h2>
+  <p class="say">רוב האנשים עם נכות קלה מקבלים שכר. לכן הדירוג בין הערים תלוי גם במי שנרשם, ולא רק במי שעובד.</p>
+  <div class="stats">
+    <div class="stat soft"><b>83.8%</b><span>מקבלים שכר עם עד 19% נכות</span></div>
+    <div class="stat ref"><b>40.5%</b><span>מקבלים שכר עם 60% נכות ומעלה</span></div>
+  </div>
+  <div class="card">
+    <h3>בערים המבוססות יש במרשם פי 1.7 יותר נכות קלה</h3>
+    <p class="note">חלקם של בעלי עד 19% נכות מתוך הרשומים, 2022. 18 הערים חולקו לשלוש קבוצות לפי המדד החברתי-כלכלי של הלמ"ס.</p>
+    <div class="chart" data-draw="c_registry"></div>
+  </div>
+  <div class="ask"><small>שאלה פתוחה</small><b>מי לא מגיע למרשם, והאם זה מעוות את ההשוואה בין ערים?</b><span>נדרש: נתוני אוכלוסייה לפי עיר ומקור ההכרה, כדי להבחין בין שכיחות המוגבלות לבין שיעור ההכרה בה.</span></div>
+  <details class="check"><summary>איך לקרוא את זה</summary>
+    <p>אלה שיעורים מתוך הרשומים במרשם, לא שכיחות באוכלוסייה. הקשר הוא ברמת העיר בלבד, על 18 ערים. המתאם בין המדד החברתי-כלכלי של העיר לחלקה של קבוצת עד 19% נכות במרשם הוא 0.86.</p>
+    <p>שש הערים המבוססות פחות: בני ברק, בית שמש, ירושלים, אשדוד, בת ים, אשקלון. שש המבוססות ביותר: רחובות, ראשון לציון, רמת גן, כפר סבא, תל אביב-יפו, הרצלייה. רוב הרשומים בקבוצת עד 19% נכות הם גברים, ולכן ייתכן שהיא משקפת מסלול הכרה שקשור לעבודה או לשירות.</p>
+  </details>
+  </div>
+</section>
+
+<section id="about">
+  <div class="fbody">
+  <details class="check"><summary>על הנתונים</summary>
+    <p>כל המספרים מחושבים מלוחות בהזמנה מיוחדת של הלמ"ס מתוך מרשם אנשים עם מוגבלות לשנת 2022: 499,954 רשומים, גברים בני 18-67 ונשים בנות 18-62. "קיבלו שכר" פירושו שכר מעבודה בחודש אחד לפחות בשנה. המרשם כולל את מי שמוסדות המדינה הכירו במוגבלותו.</p>
+    <p>אין להשוות את המספרים לדוח על ירושלים עם נתוני 2024: השנים ומקור נתוני השכר שונים.</p>
+  </details>
+  </div>
+</section>
+
+<footer>
+  <p class="note">מקור: לוחות בהזמנה מיוחדת של הלשכה המרכזית לסטטיסטיקה מתוך מרשם אנשים עם מוגבלות 2022, והמדד החברתי-כלכלי של הרשויות המקומיות (הלמ"ס).</p>
+</footer>
+
+</div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+/* Charts for the Jerusalem 2024 page. All series are precomputed in build_page.py. */
+const DATA = {"head":[{"label":"גברים 18-34","hi":41.1,"oth":59.0,"n":12408,"e":5102,"on":13353,"oe":7882},{"label":"גברים 35-54","hi":40.2,"oth":57.0,"n":17991,"e":7224,"on":30096,"oe":17167},{"label":"נשים 18-34","hi":42.9,"oth":53.9,"n":9310,"e":3994,"on":8731,"oe":4703},{"label":"נשים 35-54","hi":38.8,"oth":46.8,"n":17584,"e":6826,"on":22608,"oe":10589}],"women":[{"label":"בפועל","w":50.2,"m":56.7,"hl":false},{"label":"עם תמהיל הנכות של הגברים","w":59.4,"m":56.7,"hl":true}],"registry":[{"label":"שש הערים המבוססות פחות","v":4.2,"n0":3451,"n":82571},{"label":"שש הערים שבאמצע","v":5.1,"n0":3921,"n":76264},{"label":"שש הערים המבוססות ביותר","v":7.2,"n0":4232,"n":59000}],"light_il":6.0};
+const f1 = d3.format('.1f');
+const fint = d3.format(',');
+const pct = (v) => f1(v) + '%';
+const pct0 = (v) => d3.format('.0f')(v) + '%';
+const LRM = '‎';
+const signed = (v) => LRM + (v > 0 ? '+' : v < 0 ? '−' : '') + fint(Math.abs(v));
+const h = (tag, cls, text) => {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (text != null) e.textContent = text;
+  return e;
+};
+
+function withTip(el) {
+  el.classList.add('tipbox');
+  const tip = h('div', 'tip');
+  tip.hidden = true;
+  el.append(tip);
+  el.onpointermove = (e) => {
+    const t = e.target && e.target.closest ? e.target.closest('[data-tip]') : null;
+    if (!t) { tip.hidden = true; return; }
+    tip.textContent = t.getAttribute('data-tip');
+    tip.hidden = false;
+    const b = el.getBoundingClientRect();
+    const w = tip.offsetWidth, ht = tip.offsetHeight;
+    tip.style.left = Math.max(0, Math.min(b.width - w, e.clientX - b.left - w / 2)) + 'px';
+    tip.style.top = Math.max(0, e.clientY - b.top - ht - 12) + 'px';
+  };
+  el.onpointerleave = () => { tip.hidden = true; };
+}
+
+/* Dot rows with the values printed in fixed columns, so labels never collide with the marks. */
+function rowsPlot(parent, o) {
+  const [a, b] = o.domain;
+  const X = (v) => (v - a) / (b - a) * 100;
+  const plot = h('div', 'plot cmp' + (o.keep ? ' keep' : '') + (o.cls ? ' ' + o.cls : ''));
+  plot.style.setProperty('--nv', o.heads.length);
+  if (o.labelWidth) plot.style.setProperty('--lab', o.labelWidth);
+  if (o.valWidth) plot.style.setProperty('--vw', o.valWidth);
+  const head = h('div', 'prow phead');
+  head.append(h('div', 'plab'), h('div', 'ptrack'));
+  o.heads.forEach((t, i) => head.append(h('div', 'pval' + (i === 0 ? ' strong' : ''), t)));
+  plot.append(head);
+  for (const r of o.rows) {
+    const row = h('div', 'prow' + (r.cls ? ' ' + r.cls : ''));
+    const tr = h('div', 'ptrack');
+    for (const t of o.ticks) {
+      const g = h('span', 'gl' + (t === o.zero ? ' zero' : ''));
+      g.style.insetInlineStart = X(t) + '%';
+      tr.append(g);
+    }
+    if (o.ref != null) {
+      const g = h('span', 'gl refline');
+      g.style.insetInlineStart = X(o.ref) + '%';
+      tr.append(g);
+    }
+    for (const [p, q] of r.links || []) {
+      const l = h('span', 'plink');
+      l.style.insetInlineStart = X(Math.min(p, q)) + '%';
+      l.style.width = Math.abs(X(q) - X(p)) + '%';
+      tr.append(l);
+    }
+    for (const m of r.marks) {
+      const d = h('span', 'pdot ' + m.cls);
+      d.style.insetInlineStart = X(m.v) + '%';
+      d.setAttribute('data-tip', m.tip);
+      tr.append(d);
+    }
+    row.append(h('div', 'plab', r.label), tr);
+    r.vals.forEach((t, i) => row.append(h('div', 'pval' + (i === 0 ? ' strong' : ''), t)));
+    plot.append(row);
+  }
+  const ax = h('div', 'prow paxis');
+  const atr = h('div', 'ptrack');
+  for (const t of o.ticks) {
+    const s = h('span', 'ptick', o.tickFmt(t));
+    s.style.insetInlineStart = X(t) + '%';
+    atr.append(s);
+  }
+  ax.append(h('div', 'plab'), atr);
+  o.heads.forEach(() => ax.append(h('div', 'pval')));
+  plot.append(ax);
+  parent.append(plot);
+}
+
+const tipLine = (place, rate, e, n) => place + ': ' + pct(rate) + ' (' + fint(e) + ' מתוך ' + fint(n) + ')';
+const versus = (rows) => rows.map((r) => ({
+  label: r.label,
+  links: [[r.jlm, r.il]],
+  marks: [
+    {v: r.il, cls: 'il', tip: r.label + '\n' + tipLine('ישראל', r.il, r.ile, r.iln)},
+    {v: r.jlm, cls: 'c1', tip: r.label + '\n' + tipLine('ירושלים', r.jlm, r.e, r.n)},
+  ],
+  vals: [pct(r.jlm), pct(r.il)],
+}));
+const HEADS = ['ירושלים', 'ישראל'];
+
+const draws = {
+  c_head(el) {
+    rowsPlot(el, {domain: [0, 80], ticks: [0, 20, 40, 60, 80], tickFmt: pct0, heads: ['פגיעת ראש', 'פיזית אחרת'], valWidth: '5rem', labelWidth: '6.2rem',
+      rows: DATA.head.map((r) => ({
+        label: r.label,
+        links: [[r.hi, r.oth]],
+        marks: [
+          {v: r.oth, cls: 'il', tip: r.label + '\nמוגבלות פיזית אחרת: ' + pct(r.oth) + ' (' + fint(r.oe) + ' מתוך ' + fint(r.on) + ')'},
+          {v: r.hi, cls: 'c1', tip: r.label + '\nפגיעת ראש: ' + pct(r.hi) + ' (' + fint(r.e) + ' מתוך ' + fint(r.n) + ')'},
+        ],
+        vals: [pct(r.hi), pct(r.oth)],
+      }))});
+    withTip(el);
+  },
+  c_women(el) {
+    rowsPlot(el, {domain: [40, 70], ticks: [40, 50, 60, 70], tickFmt: pct0, heads: ['נשים', 'גברים'], labelWidth: '8.5rem', cls: 'roomy',
+      rows: DATA.women.map((r) => ({
+        label: r.label, cls: r.hl ? 'strong' : '',
+        links: [[r.w, r.m]],
+        marks: [
+          {v: r.m, cls: 'il', tip: 'גברים בני 35-54: ' + pct(r.m)},
+          {v: r.w, cls: r.hl ? 'c1' : 'c1 hollow', tip: 'נשים בנות 35-54, ' + r.label + ': ' + pct(r.w)},
+        ],
+        vals: [pct(r.w), pct(r.m)],
+      }))});
+    withTip(el);
+  },
+  c_registry(el) {
+    const wrap = h('div', 'bars roomy');
+    wrap.style.setProperty('--blab', '10.5rem');
+    const max = 8;
+    const rows = DATA.registry.map((d, i) => ({...d, cls: i === 0 ? 'c1' : 'cm'}));
+    rows.push({label: 'ישראל', v: DATA.light_il, cls: 'ck'});
+    rows.forEach((d) => {
+      const row = h('div', 'brow' + (d.cls === 'cm' ? '' : ' strong'));
+      row.append(h('div', 'plab', d.label));
+      const t = h('div', 'btrack');
+      const s = h('span', 'seg ' + d.cls);
+      s.style.width = (d.v / max * 78) + '%';
+      if (d.n) s.setAttribute('data-tip', d.label + '\n' + fint(d.n0) + ' מתוך ' + fint(d.n) + ' רשומים');
+      t.append(s, h('span', 'bval', pct(d.v)));
+      row.append(t);
+      wrap.append(row);
+    });
+    el.append(wrap);
+    withTip(el);
+  },
+};
+document.querySelectorAll('[data-draw]').forEach((el) => { el.replaceChildren(); draws[el.dataset.draw](el); });
+
+</script>
+</body></html>
