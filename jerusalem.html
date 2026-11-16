@@ -357,6 +357,13 @@ body{line-height:1.6}
 .ins ol.steps li::before{content:counter(st);font-family:var(--display);font-weight:700;font-size:2.4rem;line-height:.85;color:var(--s2)}
 .ins .bars.pairs .psub{font-weight:700;color:var(--ink);font-size:var(--fs-0)}
 
+/* explanation folded under a summary: steps and a worked example */
+.ins details.check[open]{gap:1rem}
+.ins details.check ol.steps{grid-template-columns:1fr;gap:.8rem;margin-block:.4rem}
+.ins details.check ol.steps li{flex-direction:row;align-items:baseline;gap:.7rem;border-top:0;padding-top:0}
+.ins details.check ol.steps li::before{font-size:1.7rem}
+.ins details.check .chart{margin-block:.2rem .4rem}
+
 </style>
 <div class="page"><div class="ins" dir="rtl" lang="he">
 
@@ -414,33 +421,27 @@ body{line-height:1.6}
   <div class="kicker"><span>ממצא</span><b>3</b></div>
   <div class="fbody">
   <h2>אילו עבדו כמו אנשים דומים להם בארץ, עוד כ-1,400 ירושלמים היו מקבלים שכר</h2>
-  <p class="say">אפשר לחשוב שהפער קיים רק כי בירושלים יש יותר ערבים ויותר אנשים עם נכות קשה. בדקנו את זה: השווינו כל קבוצה בעיר לאותה קבוצה בדיוק בכל הארץ.</p>
-  <ol class="steps">
-    <li>חילקנו את הרשומים בעיר ל-72 קבוצות של אנשים דומים: אותה קבוצת אוכלוסייה, אותו מין, אותו גיל ואותה חומרת נכות.</li>
-    <li>לכל קבוצה בדקנו איזה חלק ממנה מקבל שכר בכל הארץ, וחישבנו כמה היו מקבלים שכר בירושלים באותו שיעור.</li>
-    <li>חיברנו את כל הקבוצות והשווינו למספר מקבלי השכר בעיר בפועל.</li>
-  </ol>
+  <p class="say">אפשר לחשוב שהפער קיים רק כי בירושלים יש יותר ערבים ויותר אנשים עם נכות קשה. אבל הוא נשאר גם כשמשווים כל קבוצה בעיר לאותה קבוצה בדיוק בכל הארץ.</p>
   <div class="stats">
     <div class="stat"><b>19,984</b><span>מקבלים שכר בירושלים בפועל</span></div>
     <div class="stat ref"><b><small>כ-</small>21,400</b><span>היו מקבלים שכר, אילו כל קבוצה קיבלה שכר כמו בארץ</span></div>
   </div>
-  <div class="grid2">
-    <div class="card">
-      <h3>דוגמה: שלוש קבוצות עם 80% נכות ומעלה</h3>
-      <p class="note">מספר מקבלי השכר בירושלים, 2024: בפועל, ומה שהיה מתקבל לפי השיעור של אותה קבוצה בכל הארץ.</p>
-      <div class="legend"><span class="c1"><i class="sw sq2"></i>בפועל</span><span class="cm"><i class="sw sq2"></i>לפי השיעור בארץ</span></div>
-      <div class="chart" data-draw="c_example"></div>
-    </div>
-    <div class="card">
-      <h3>כשמחברים את כל הקבוצות: רוב הפער אצל גברים יהודים</h3>
-      <p class="note">כמה עוד אנשים היו מקבלים שכר בירושלים, אילו כל קבוצה קיבלה שכר כמו אותה קבוצה בארץ. נתוני 2024.</p>
-      <div class="chart" data-draw="c_missing"></div>
-    </div>
+  <div class="card">
+    <h3>רוב הפער אצל גברים יהודים</h3>
+    <p class="note">כמה עוד אנשים היו מקבלים שכר בירושלים, אילו כל קבוצה קיבלה שכר כמו אותה קבוצה בארץ. נתוני 2024.</p>
+    <div class="chart" data-draw="c_missing"></div>
   </div>
   <div class="ask"><small>שאלה פתוחה</small><b>אם זה לא רק מי שגר בעיר, מה מסביר את הפער שנשאר?</b><span>נדרש: נתונים על שכונה, השכלה ותוכניות תעסוקה.</span></div>
-  <details class="check"><summary>הערות לחישוב</summary>
-    <p>תא אחד קטן שהלמ"ס לא מפרסמת נשאר מחוץ לחישוב. המספרים מעוגלים. זה אומדן תיאורי: הוא אומר כמה מהפער נשאר אחרי שמשווים אנשים עם אותו פרופיל, ולא מדוע הוא קיים.</p>
-    <p>לשם השוואה: ערבים הם 36.0% מהרשומים בירושלים ו-23.6% בישראל, ו-78.0% מהרשומים בעיר הם עם 60% נכות ומעלה, מול 72.8% בישראל.</p>
+  <details class="check"><summary>איך בדקנו</summary>
+    <ol class="steps">
+      <li>חילקנו את הרשומים בעיר ל-72 קבוצות של אנשים דומים: אותה קבוצת אוכלוסייה, אותו מין, אותו גיל ואותה חומרת נכות.</li>
+      <li>לכל קבוצה בדקנו איזה חלק ממנה מקבל שכר בכל הארץ, וחישבנו כמה היו מקבלים שכר בירושלים באותו שיעור.</li>
+      <li>חיברנו את כל הקבוצות והשווינו למספר מקבלי השכר בעיר בפועל.</li>
+    </ol>
+    <p><b>דוגמה: שלוש קבוצות עם 80% נכות ומעלה.</b> מספר מקבלי השכר בירושלים בפועל, מול מה שהיה מתקבל לפי השיעור של אותה קבוצה בכל הארץ.</p>
+    <div class="legend"><span class="c1"><i class="sw sq2"></i>בפועל</span><span class="cm"><i class="sw sq2"></i>לפי השיעור בארץ</span></div>
+    <div class="chart" data-draw="c_example"></div>
+    <p>תא אחד קטן שהלמ"ס לא מפרסמת נשאר מחוץ לחישוב, והמספרים מעוגלים. זה אומדן תיאורי: הוא אומר כמה מהפער נשאר אחרי שמשווים אנשים עם אותו פרופיל, ולא מדוע הוא קיים. לשם השוואה, ערבים הם 36.0% מהרשומים בירושלים ו-23.6% בישראל, ו-78.0% מהרשומים בעיר הם עם 60% נכות ומעלה, מול 72.8% בישראל.</p>
   </details>
   </div>
 </section>
