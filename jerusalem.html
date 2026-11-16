@@ -326,6 +326,31 @@ body{line-height:1.6}
 .ins .bars.roomy .seg{height:1.7rem}
 @container (max-width:40rem){.ins .bars .brow,.ins .bars .wgroup{grid-template-columns:minmax(0,1fr);gap:.25rem}.ins .bars.roomy{gap:.9rem}}
 
+/* chart forms that fit the idea: unit grids, a split gap bar, columns */
+.ins .units{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,10.5rem),1fr));gap:1.75rem 2.25rem;align-items:start}
+.ins .unit{display:flex;flex-direction:column;gap:.55rem;max-width:13rem}
+.ins .ulab{font-size:var(--fs-0);line-height:1.35;color:var(--ink2);min-height:2.4rem}
+.ins .ucells{display:grid;grid-template-columns:repeat(10,1fr);gap:3px}
+.ins .uc{aspect-ratio:1;background:var(--grid)}
+.ins .uc.on{background:var(--ink)}
+.ins .unit.hl .uc.on{background:var(--s2)}
+.ins .unum{font-weight:700;font-size:1.2rem;line-height:1.3}
+.ins .split{display:flex;flex-direction:column;gap:.55rem;padding-block:.4rem}
+.ins .splitends{display:flex;justify-content:space-between;gap:1rem;font-weight:700;font-size:1.05rem}
+.ins .splitbar{display:flex;gap:3px}
+.ins .sseg{flex-basis:0;min-width:0;height:3.2rem;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.2rem;background:var(--dot);white-space:nowrap}
+.ins .sseg.cm{color:var(--ink)}
+.ins .sseg.c1{color:var(--panel)}
+.ins .scap{flex-basis:0;min-width:0;font-size:var(--fs-0);line-height:1.35;color:var(--ink2)}
+.ins .scap.strong{color:var(--ink);font-weight:700}
+.ins .cols{display:grid;grid-template-columns:repeat(var(--ncols,4),minmax(0,1fr));gap:.9rem;max-width:34rem}
+.ins .col{display:flex;flex-direction:column;gap:.5rem;text-align:center}
+.ins .carea{height:11rem;display:flex;flex-direction:column;justify-content:flex-end;gap:.3rem}
+.ins .cval{font-size:1rem;font-weight:600}
+.ins .cbar{background:var(--dot);min-height:2px}
+.ins .clab{font-size:var(--fs-0);line-height:1.3;color:var(--ink2)}
+.ins .col.hl .cval,.ins .col.hl .clab{font-weight:700;color:var(--ink)}
+
 </style>
 <div class="page"><div class="ins" dir="rtl" lang="he">
 
@@ -347,7 +372,7 @@ body{line-height:1.6}
   </div>
   <div class="card">
     <h3>ככל שמתקרבים למי שמקבל שכר, חלקה של ירושלים גדל</h3>
-    <p class="note">כמה מתוך כל ישראל גרים בירושלים, 2024.</p>
+    <p class="note">כל ריבוע הוא אדם אחד מתוך 100 בישראל. הריבועים הצבועים גרים בירושלים. נתוני 2024.</p>
     <div class="chart" data-draw="c_idshare"></div>
   </div>
   <div class="ask"><small>שאלה פתוחה</small><b>מה עובד בירושלים, והאם אפשר להעביר את זה לסוגי מוגבלות אחרים?</b><span>נדרש: מיפוי מסגרות התעסוקה בעיר. "קיבלו שכר" כולל כל שכר במהלך השנה, ולכן ייתכן שמדובר גם בתעסוקה נתמכת.</span></div>
@@ -390,7 +415,7 @@ body{line-height:1.6}
   </div>
   <div class="card">
     <h3>מי שגר בעיר מסביר פחות מחצי מהפער</h3>
-    <p class="note">שיעור מקבלי השכר, 2024. השורה האמצעית: מה היה השיעור בירושלים אילו כל קבוצה בעיר קיבלה שכר כמו אותה קבוצה בכל הארץ.</p>
+    <p class="note">הפער בשיעור מקבלי השכר בין ישראל לירושלים, 2024, בנקודות אחוז. החלק האפור היה נעלם אילו כל קבוצה בעיר קיבלה שכר כמו אותה קבוצה בכל הארץ.</p>
     <div class="chart" data-draw="c_profile"></div>
   </div>
   <div class="ask"><small>שאלה פתוחה</small><b>אם זה לא רק מי שגר בעיר, מה מסביר את הפער שנשאר?</b><span>נדרש: נתונים על שכונה, השכלה ותוכניות תעסוקה.</span></div>
@@ -419,7 +444,7 @@ body{line-height:1.6}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script>
 /* Charts for the Jerusalem 2024 page. All series are precomputed in build_page.py. */
-const DATA = {"mental":[{"label":"גברים","jlm":38.7,"il":44.7,"n":8374,"e":3238,"iln":116887,"ile":52280},{"label":"נשים","jlm":53.7,"il":53.0,"n":5729,"e":3077,"iln":89300,"ile":47302}],"idshare":[{"label":"מכלל הרשומים במרשם","v":7.5,"cls":"cm"},{"label":"מהרשומים עם מוגבלות שכלית התפתחותית","v":13.6,"cls":"cm"},{"label":"ממקבלי השכר עם מוגבלות שכלית התפתחותית","v":20.9,"cls":"c1"}],"profile":[{"label":"ישראל","v":51.6,"cls":"ck"},{"label":"ירושלים, אילו כל קבוצה קיבלה שכר כמו בארץ","v":49.2,"cls":"cm"},{"label":"ירושלים בפועל","v":46.0,"cls":"c1"}]};
+const DATA = {"mental":[{"label":"גברים","jlm":38.7,"il":44.7,"n":8374,"e":3238,"iln":116887,"ile":52280},{"label":"נשים","jlm":53.7,"il":53.0,"n":5729,"e":3077,"iln":89300,"ile":47302}],"idshare":[{"label":"מכל 100 אנשים עם מוגבלות בישראל","v":7.5,"cls":"cm"},{"label":"מכל 100 אנשים עם מוגבלות שכלית התפתחותית","v":13.6,"cls":"cm"},{"label":"מכל 100 מהם שמקבלים שכר","v":20.9,"cls":"c1"}],"profile":[{"label":"ישראל","v":51.6,"cls":"ck"},{"label":"ירושלים, אילו כל קבוצה קיבלה שכר כמו בארץ","v":49.2,"cls":"cm"},{"label":"ירושלים בפועל","v":46.0,"cls":"c1"}]};
 const f1 = d3.format('.1f');
 const fint = d3.format(',');
 const pct = (v) => f1(v) + '%';
@@ -561,9 +586,62 @@ function pairBars(el, groups, max, labelWidth) {
   withTip(el);
 }
 
+/* 100-square grids: "n of every 100". */
+function unitGrids(el, items) {
+  const wrap = h('div', 'units');
+  for (const it of items) {
+    const n = Math.round(it.v);
+    const g = h('div', 'unit' + (it.cls === 'c1' ? ' hl' : ''));
+    const cells = h('div', 'ucells');
+    cells.setAttribute('role', 'img');
+    cells.setAttribute('aria-label', n + ' מתוך 100');
+    for (let i = 0; i < 100; i++) cells.append(h('span', 'uc' + (i < n ? ' on' : '')));
+    g.append(h('div', 'ulab', it.label), cells, h('div', 'unum', n + ' גרים בירושלים'));
+    wrap.append(g);
+  }
+  el.append(wrap);
+}
+
+/* One bar for a gap, split into its parts. */
+function splitBar(el, from, to, parts) {
+  const wrap = h('div', 'split');
+  const ends = h('div', 'splitends');
+  ends.append(h('span', null, from), h('span', null, to));
+  const bar = h('div', 'splitbar');
+  const caps = h('div', 'splitbar');
+  for (const p of parts) {
+    const seg = h('div', 'sseg ' + p.cls, f1(p.v) + " נק'");
+    seg.style.flexGrow = p.v;
+    const cap = h('div', 'scap' + (p.cls === 'c1' ? ' strong' : ''), p.label);
+    cap.style.flexGrow = p.v;
+    bar.append(seg);
+    caps.append(cap);
+  }
+  wrap.append(ends, bar, caps);
+  el.append(wrap);
+}
+
+/* Vertical columns for ordered groups: reads as a staircase. */
+function columns(el, cols, max) {
+  const wrap = h('div', 'cols');
+  wrap.style.setProperty('--ncols', cols.length);
+  for (const c of cols) {
+    const col = h('div', 'col' + (c.cls === 'cm' ? '' : ' hl'));
+    const area = h('div', 'carea');
+    const bar = h('div', 'cbar ' + c.cls);
+    bar.style.height = (c.v / max * 100) + '%';
+    if (c.tip) bar.setAttribute('data-tip', c.tip);
+    area.append(h('span', 'cval', pct(c.v)), bar);
+    col.append(area, h('div', 'clab', c.label));
+    wrap.append(col);
+  }
+  el.append(wrap);
+  withTip(el);
+}
+
 const draws = {
   c_idshare(el) {
-    simpleBars(el, DATA.idshare, 25, '11rem');
+    unitGrids(el, DATA.idshare);
   },
   c_mental(el) {
     pairBars(el, DATA.mental.map((r) => ({
@@ -575,7 +653,11 @@ const draws = {
     })), 65, '4rem');
   },
   c_profile(el) {
-    simpleBars(el, DATA.profile, 60, '11rem');
+    const [il, exp, jlm] = DATA.profile.map((d) => d.v);
+    splitBar(el, 'ישראל ' + pct(il), 'ירושלים ' + pct(jlm), [
+      {v: il - exp, cls: 'cm', label: 'מוסבר במי שגר בעיר'},
+      {v: exp - jlm, cls: 'c1', label: 'נשאר גם בין אנשים דומים'},
+    ]);
   },
 };
 document.querySelectorAll('[data-draw]').forEach((el) => { el.replaceChildren(); draws[el.dataset.draw](el); });

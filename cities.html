@@ -326,6 +326,31 @@ body{line-height:1.6}
 .ins .bars.roomy .seg{height:1.7rem}
 @container (max-width:40rem){.ins .bars .brow,.ins .bars .wgroup{grid-template-columns:minmax(0,1fr);gap:.25rem}.ins .bars.roomy{gap:.9rem}}
 
+/* chart forms that fit the idea: unit grids, a split gap bar, columns */
+.ins .units{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,10.5rem),1fr));gap:1.75rem 2.25rem;align-items:start}
+.ins .unit{display:flex;flex-direction:column;gap:.55rem;max-width:13rem}
+.ins .ulab{font-size:var(--fs-0);line-height:1.35;color:var(--ink2);min-height:2.4rem}
+.ins .ucells{display:grid;grid-template-columns:repeat(10,1fr);gap:3px}
+.ins .uc{aspect-ratio:1;background:var(--grid)}
+.ins .uc.on{background:var(--ink)}
+.ins .unit.hl .uc.on{background:var(--s2)}
+.ins .unum{font-weight:700;font-size:1.2rem;line-height:1.3}
+.ins .split{display:flex;flex-direction:column;gap:.55rem;padding-block:.4rem}
+.ins .splitends{display:flex;justify-content:space-between;gap:1rem;font-weight:700;font-size:1.05rem}
+.ins .splitbar{display:flex;gap:3px}
+.ins .sseg{flex-basis:0;min-width:0;height:3.2rem;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.2rem;background:var(--dot);white-space:nowrap}
+.ins .sseg.cm{color:var(--ink)}
+.ins .sseg.c1{color:var(--panel)}
+.ins .scap{flex-basis:0;min-width:0;font-size:var(--fs-0);line-height:1.35;color:var(--ink2)}
+.ins .scap.strong{color:var(--ink);font-weight:700}
+.ins .cols{display:grid;grid-template-columns:repeat(var(--ncols,4),minmax(0,1fr));gap:.9rem;max-width:34rem}
+.ins .col{display:flex;flex-direction:column;gap:.5rem;text-align:center}
+.ins .carea{height:11rem;display:flex;flex-direction:column;justify-content:flex-end;gap:.3rem}
+.ins .cval{font-size:1rem;font-weight:600}
+.ins .cbar{background:var(--dot);min-height:2px}
+.ins .clab{font-size:var(--fs-0);line-height:1.3;color:var(--ink2)}
+.ins .col.hl .cval,.ins .col.hl .clab{font-weight:700;color:var(--ink)}
+
 </style>
 <div class="page"><div class="ins" dir="rtl" lang="he">
 
@@ -392,7 +417,7 @@ body{line-height:1.6}
   </div>
   <div class="card">
     <h3>בערים המבוססות יש במרשם פי 1.7 יותר נכות קלה</h3>
-    <p class="note">חלקם של בעלי עד 19% נכות מתוך הרשומים, 2022. 18 הערים חולקו לשלוש קבוצות לפי המדד החברתי-כלכלי של הלמ"ס.</p>
+    <p class="note">חלקם של בעלי עד 19% נכות מתוך הרשומים, 2022. 18 הערים חולקו לשלוש קבוצות של שש לפי המדד החברתי-כלכלי של הלמ"ס.</p>
     <div class="chart" data-draw="c_registry"></div>
   </div>
   <div class="ask"><small>שאלה פתוחה</small><b>מי לא מגיע למרשם, והאם זה מעוות את ההשוואה בין ערים?</b><span>נדרש: נתוני אוכלוסייה לפי עיר ומקור ההכרה, כדי להבחין בין שכיחות המוגבלות לבין שיעור ההכרה בה.</span></div>
@@ -421,7 +446,7 @@ body{line-height:1.6}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script>
 /* Charts for the Jerusalem 2024 page. All series are precomputed in build_page.py. */
-const DATA = {"head":[{"label":"גברים 18-34","hi":41.1,"oth":59.0,"n":12408,"e":5102,"on":13353,"oe":7882},{"label":"גברים 35-54","hi":40.2,"oth":57.0,"n":17991,"e":7224,"on":30096,"oe":17167},{"label":"נשים 18-34","hi":42.9,"oth":53.9,"n":9310,"e":3994,"on":8731,"oe":4703},{"label":"נשים 35-54","hi":38.8,"oth":46.8,"n":17584,"e":6826,"on":22608,"oe":10589}],"women":[{"label":"גברים","v":56.7,"cls":"ck"},{"label":"נשים","v":50.2,"cls":"cm"},{"label":"נשים, אילו חומרת הנכות שלהן הייתה כמו של הגברים","v":59.4,"cls":"c1"}],"registry":[{"label":"שש הערים המבוססות פחות","v":4.2,"n0":3451,"n":82571},{"label":"שש הערים שבאמצע","v":5.1,"n0":3921,"n":76264},{"label":"שש הערים המבוססות ביותר","v":7.2,"n0":4232,"n":59000}],"light_il":6.0};
+const DATA = {"head":[{"label":"גברים 18-34","hi":41.1,"oth":59.0,"n":12408,"e":5102,"on":13353,"oe":7882},{"label":"גברים 35-54","hi":40.2,"oth":57.0,"n":17991,"e":7224,"on":30096,"oe":17167},{"label":"נשים 18-34","hi":42.9,"oth":53.9,"n":9310,"e":3994,"on":8731,"oe":4703},{"label":"נשים 35-54","hi":38.8,"oth":46.8,"n":17584,"e":6826,"on":22608,"oe":10589}],"women":[{"label":"גברים","v":56.7,"cls":"ck"},{"label":"נשים","v":50.2,"cls":"cm"},{"label":"נשים, אילו חומרת הנכות שלהן הייתה כמו של הגברים","v":59.4,"cls":"c1"}],"registry":[{"label":"הערים המבוססות פחות","v":4.2,"n0":3451,"n":82571},{"label":"הערים שבאמצע","v":5.1,"n0":3921,"n":76264},{"label":"הערים המבוססות ביותר","v":7.2,"n0":4232,"n":59000}],"light_il":6.0};
 const f1 = d3.format('.1f');
 const fint = d3.format(',');
 const pct = (v) => f1(v) + '%';
@@ -563,6 +588,59 @@ function pairBars(el, groups, max, labelWidth) {
   withTip(el);
 }
 
+/* 100-square grids: "n of every 100". */
+function unitGrids(el, items) {
+  const wrap = h('div', 'units');
+  for (const it of items) {
+    const n = Math.round(it.v);
+    const g = h('div', 'unit' + (it.cls === 'c1' ? ' hl' : ''));
+    const cells = h('div', 'ucells');
+    cells.setAttribute('role', 'img');
+    cells.setAttribute('aria-label', n + ' מתוך 100');
+    for (let i = 0; i < 100; i++) cells.append(h('span', 'uc' + (i < n ? ' on' : '')));
+    g.append(h('div', 'ulab', it.label), cells, h('div', 'unum', n + ' גרים בירושלים'));
+    wrap.append(g);
+  }
+  el.append(wrap);
+}
+
+/* One bar for a gap, split into its parts. */
+function splitBar(el, from, to, parts) {
+  const wrap = h('div', 'split');
+  const ends = h('div', 'splitends');
+  ends.append(h('span', null, from), h('span', null, to));
+  const bar = h('div', 'splitbar');
+  const caps = h('div', 'splitbar');
+  for (const p of parts) {
+    const seg = h('div', 'sseg ' + p.cls, f1(p.v) + " נק'");
+    seg.style.flexGrow = p.v;
+    const cap = h('div', 'scap' + (p.cls === 'c1' ? ' strong' : ''), p.label);
+    cap.style.flexGrow = p.v;
+    bar.append(seg);
+    caps.append(cap);
+  }
+  wrap.append(ends, bar, caps);
+  el.append(wrap);
+}
+
+/* Vertical columns for ordered groups: reads as a staircase. */
+function columns(el, cols, max) {
+  const wrap = h('div', 'cols');
+  wrap.style.setProperty('--ncols', cols.length);
+  for (const c of cols) {
+    const col = h('div', 'col' + (c.cls === 'cm' ? '' : ' hl'));
+    const area = h('div', 'carea');
+    const bar = h('div', 'cbar ' + c.cls);
+    bar.style.height = (c.v / max * 100) + '%';
+    if (c.tip) bar.setAttribute('data-tip', c.tip);
+    area.append(h('span', 'cval', pct(c.v)), bar);
+    col.append(area, h('div', 'clab', c.label));
+    wrap.append(col);
+  }
+  el.append(wrap);
+  withTip(el);
+}
+
 const draws = {
   c_head(el) {
     pairBars(el, DATA.head.map((r) => ({
@@ -579,7 +657,7 @@ const draws = {
   c_registry(el) {
     const rows = DATA.registry.map((d, i) => ({label: d.label, v: d.v, cls: i === 0 ? 'c1' : 'cm', tip: d.label + '\n' + fint(d.n0) + ' מתוך ' + fint(d.n) + ' רשומים'}));
     rows.push({label: 'ישראל', v: DATA.light_il, cls: 'ck'});
-    simpleBars(el, rows, 8, '10.5rem');
+    columns(el, rows, 8);
   },
 };
 document.querySelectorAll('[data-draw]').forEach((el) => { el.replaceChildren(); draws[el.dataset.draw](el); });
