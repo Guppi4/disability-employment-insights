@@ -364,6 +364,10 @@ body{line-height:1.6}
 .ins details.check ol.steps li::before{font-size:1.7rem}
 .ins details.check .chart{margin-block:.2rem .4rem}
 
+.ins .unit{max-width:15rem}
+.ins .cmpline{max-width:none;border-top:1px solid var(--grid);padding-top:.8rem;color:var(--ink2)}
+.ins .cmpline b{color:var(--ink)}
+
 </style>
 <div class="page"><div class="ins" dir="rtl" lang="he">
 
@@ -378,19 +382,21 @@ body{line-height:1.6}
   <div class="kicker"><span>ממצא</span><b>1</b></div>
   <div class="fbody">
   <h2>אחד מכל חמישה ישראלים עם מוגבלות שכלית התפתחותית שמקבלים שכר גר בירושלים</h2>
-  <p class="say">זו נקודת החוזק של העיר. במוגבלות שכלית התפתחותית ירושלים הרבה מעל הארץ, גם אצל יהודים וגם אצל ערבים.</p>
+  <p class="say">זו נקודת החוזק של העיר. בכל הארץ מעט אנשים עם מוגבלות שכלית התפתחותית מקבלים שכר, ובירושלים הרבה יותר.</p>
   <div class="stats">
-    <div class="stat"><b>21.4%</b><span>מקבלים שכר בירושלים</span><small>ישראל: 13.9%</small></div>
-    <div class="stat soft"><b>657</b><span>מקבלי שכר עם מוגבלות שכלית התפתחותית בירושלים</span><small>מתוך 3,148 בכל ישראל</small></div>
+    <div class="stat"><b>657</b><span>ירושלמים עם מוגבלות שכלית התפתחותית קיבלו שכר ב-2024</span></div>
+    <div class="stat ref"><b>3,148</b><span>בכל ישראל, כולל ירושלים</span></div>
   </div>
   <div class="card">
-    <h3>ככל שמתקרבים למי שמקבל שכר, חלקה של ירושלים גדל</h3>
-    <p class="note">כל ריבוע הוא אדם אחד מתוך 100 בישראל. הריבועים הצבועים גרים בירושלים. נתוני 2024.</p>
+    <h3>21 מכל 100 גרים בירושלים</h3>
+    <p class="note">כל ריבוע הוא אדם אחד. הריבועים הצבועים גרים בירושלים.</p>
     <div class="chart" data-draw="c_idshare"></div>
+    <p class="cmpline"><b>לשם השוואה:</b> מכל 100 אנשים עם מוגבלות מכל סוג בישראל, רק 8 גרים בירושלים.</p>
   </div>
   <div class="ask"><small>שאלה פתוחה</small><b>מה עובד בירושלים, והאם אפשר להעביר את זה לסוגי מוגבלות אחרים?</b><span>נדרש: מיפוי מסגרות התעסוקה בעיר. "קיבלו שכר" כולל כל שכר במהלך השנה, ולכן ייתכן שמדובר גם בתעסוקה נתמכת.</span></div>
-  <details class="check"><summary>איך לקרוא את זה</summary>
-    <p>היתרון קיים בשתי קבוצות האוכלוסייה: 26.2% מול 15.4% אצל יהודים ואחרים, ו-16.6% מול 11.2% אצל ערבים. הלוחות לא מפרטים את סוג התעסוקה או את גובה השכר.</p>
+  <details class="check"><summary>עוד על המספרים</summary>
+    <p>בירושלים 21 מכל 100 אנשים עם מוגבלות שכלית התפתחותית קיבלו שכר ב-2024. בישראל כולה: 14 מכל 100. היתרון קיים בשתי קבוצות האוכלוסייה: 26.2% מול 15.4% אצל יהודים ואחרים, ו-16.6% מול 11.2% אצל ערבים.</p>
+    <p>הלוחות לא מפרטים את סוג התעסוקה או את גובה השכר.</p>
   </details>
   </div>
 </section>
@@ -464,7 +470,7 @@ body{line-height:1.6}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script>
 /* Charts for the Jerusalem 2024 page. All series are precomputed in build_page.py. */
-const DATA = {"mental":[{"label":"גברים","jlm":38.7,"il":44.7,"n":8374,"e":3238,"iln":116887,"ile":52280},{"label":"נשים","jlm":53.7,"il":53.0,"n":5729,"e":3077,"iln":89300,"ile":47302}],"idshare":[{"label":"מכל 100 אנשים עם מוגבלות בישראל","v":7.5,"cls":"cm"},{"label":"מכל 100 אנשים עם מוגבלות שכלית התפתחותית","v":13.6,"cls":"cm"},{"label":"מכל 100 מהם שמקבלים שכר","v":20.9,"cls":"c1"}],"example":[{"label":"גברים יהודים, בני 18–34","actual":1582,"exp":1806,"n":3994,"sub":"עוד 224 היו מקבלים שכר"},{"label":"נשים ערביות, בנות 35–54","actual":155,"exp":280,"n":1126,"sub":"עוד 125 היו מקבלים שכר"},{"label":"נשים יהודיות, בנות 35–54","actual":1170,"exp":1169,"n":2497,"sub":"אין פער"}],"missing":[{"label":"גברים יהודים","v":790,"cls":"c1","text":"עוד כ-790"},{"label":"נשים ערביות","v":490,"cls":"cm","text":"עוד כ-490"},{"label":"גברים ערבים","v":170,"cls":"cm","text":"עוד כ-170"},{"label":"נשים יהודיות","v":0,"cls":"cm","text":"אין פער"}]};
+const DATA = {"mental":[{"label":"גברים","jlm":38.7,"il":44.7,"n":8374,"e":3238,"iln":116887,"ile":52280},{"label":"נשים","jlm":53.7,"il":53.0,"n":5729,"e":3077,"iln":89300,"ile":47302}],"idshare":[{"label":"מכל 100 אנשים עם מוגבלות בישראל","v":7.5,"cls":"cm"},{"label":"מכל 100 אנשים עם מוגבלות שכלית התפתחותית","v":13.6,"cls":"cm"},{"label":"100 ישראלים עם מוגבלות שכלית התפתחותית שקיבלו שכר ב-2024","v":20.9,"cls":"c1"}],"example":[{"label":"גברים יהודים, בני 18–34","actual":1582,"exp":1806,"n":3994,"sub":"עוד 224 היו מקבלים שכר"},{"label":"נשים ערביות, בנות 35–54","actual":155,"exp":280,"n":1126,"sub":"עוד 125 היו מקבלים שכר"},{"label":"נשים יהודיות, בנות 35–54","actual":1170,"exp":1169,"n":2497,"sub":"אין פער"}],"missing":[{"label":"גברים יהודים","v":790,"cls":"c1","text":"עוד כ-790"},{"label":"נשים ערביות","v":490,"cls":"cm","text":"עוד כ-490"},{"label":"גברים ערבים","v":170,"cls":"cm","text":"עוד כ-170"},{"label":"נשים יהודיות","v":0,"cls":"cm","text":"אין פער"}]};
 const f1 = d3.format('.1f');
 const fint = d3.format(',');
 const pct = (v) => f1(v) + '%';
@@ -663,7 +669,7 @@ function columns(el, cols, max) {
 
 const draws = {
   c_idshare(el) {
-    unitGrids(el, DATA.idshare);
+    unitGrids(el, [DATA.idshare[2]]);
   },
   c_mental(el) {
     pairBars(el, DATA.mental.map((r) => ({
